@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<start_server>	
+	<server>
+		<server_name>点火未登录提醒分析服务</server_name>
+		<desc></desc>
+		<class_name>com.fleety.analysis.realtime.AccOnWithNoLoginAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+	</server>
+	<server>
+		<server_name>通过位置汇报空重车实时分析服务</server_name>
+		<desc></desc>
+		<class_name>com.fleety.analysis.realtime.BusinessFreeBusyAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+	</server>
+	
+</start_server>

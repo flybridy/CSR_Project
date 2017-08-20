@@ -1,0 +1,2569 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<db version="3.3.24">
+	<!--
+	<table name="表名" desc="">
+		<col name="柱名" desc="" type="数据类型" isNull="是否允许null,默认true" default="默认值,可以不存在.为null.如果值中存在空格或者中文字符,请在首尾使用'括起.如 'a你 好' " isPrimary="是否主键,联合主键可以多个true"/>
+		
+		<index name="索引名,值为auto意味着系统自己取名" isUnique="是否唯一性索引,默认false" desc="" on="索引所在对象,联合索引使用逗号分割多个柱名"/>
+		<cons name="外键名,值为auto意味着系统自己取名" desc="当前表某字段引用其它表字段" src="柱名(以逗号分割)" dest="表名:柱名(以逗号分割)"/>
+	</table>
+	
+	<view name="视图名">
+		<sql>视图的SQL语句</sql>
+	</view>
+	-->
+    <modify>
+		<one date="2013-10-17" modifier="徐新">
+			增加用户视图、用户权限表
+		</one>
+		<one date="2014-03-17" modifier="徐新">
+			增加命令执行表action_schedule_task
+		</one>
+		<one date="2014-03-17" modifier="jason">
+			增加表ana_order_company_stat企业电召业务统计
+		</one>
+		<one date="2014-04-10" modifier="wenxin">
+			增加表ana_grade_company_daystat企业服务评价日统计表
+		</one>
+		<one date="2014-04-18" modifier="wenxin">
+			增加表ANA_CAR_TRACKSTATUS_STAT车辆轨迹状态统计表
+		</one>
+		<one date="2014-07-18" modifier="edmund">
+			增加表ana_driver_change_location车辆轨迹状态统计表
+		</one>
+		<one date="2014-08-25" modifier="guang.zhou">
+			增加表GPS_PLAT_INFO运营商表
+		</one>
+		<one date="2014-09-05" modifier="edmund">
+			添加用户个性化设置表 ana_user_personal_setup
+		</one>
+		<one date="2014-09-04" modifier="wenxin">
+			增加表ANNOUNCEMENT_INFO 通知公告管理
+		</one>
+		<one date="2014-09-04" modifier="wenxin">
+			增加表COMPANY_DESC 企业简介
+		</one>
+		<one date="2014-09-05" modifier="wenxin">
+			增加表TAXIMETER_BLACKLIST 计价器黑名单表
+		</one>
+		<one date="2014-09-23" modifier="guang.zhou">
+			增加表：car_in_out_history_info 车辆进出历史记录表
+			增加表：car_area_plan_info 驻点区域计划表
+			增加表：car_area_plan_bind_info 驻点区域计划绑定车辆	
+			增加表：residence_area_business_day 驻点区域运营记录
+			增加表：residence_area_car_alarm_day 驻点区域车辆违规报警
+			增加表：cost_manage 费用管理
+		</one>
+		<one date="2014-10-24" modifier="guang.zhou">
+			增加表：page_feed_back_info 页面反馈信息表
+			增加表：page_help_info 页面帮助信息表
+			增加表：webservice_interface_manage webservice用户接口管理信息表
+			增加表：call_car_trouble_area_plan 打车难区域考核计划
+			增加表：call_car_trouble_area_pass 打车难区域考核通过信息记录表
+		</one>
+		<one date="2014-11-13" modifier="walter">
+			增加表：ANA_CAPACITY_AREA_MONITOR 运力区域监控表
+			增加表：ANA_CAPACITY_AREA_SCHEME 运力监控区域方案表
+			增加表：ANA_NOSTOP_AREA_MONITOR 禁停区域监控表
+			增加表：ANA_NOSTOP_AREA_SCHEME 禁停区域方案表
+			增加表：ANA_OVERSPEED_AREA_MONITOR 超速区域监控信息分析表
+			增加表：ANA_OVERSPEED_SCHEME 超速区域监控方案表
+		</one>
+			<one date="2015-01-12" modifier="walter">
+			增加表：MDT_CONTROL_LOG 终端操作记录表
+		</one>
+		<one date="2015-01-12" modifier="guang.zhou">
+			增加表：traffic_transgress_info 交通违法信息表
+			增加表：service_quality_prove 证明材料信息表
+			增加表：traffic_transgress_appeal 交通违法信息申诉表
+			增加表：service_complain_info 服务投诉信息表
+			增加表：service_complain_appeal 服务投诉信息申诉表
+			增加表：driver_service_grade_bylaws 驾驶员评分细则表
+			增加表：driver_service_grade_info 驾驶员服务加分信息表
+			增加表：traffic_accident_info 交通事故信息表
+			增加表：bussiness_transgress_info 营运违章信息表
+			增加表：bussiness_transgress_appeal 营运违章信息申诉表
+		</one>
+		<one date="2015-04-09" modifier="guang.zhou">
+			增加表：ana_business_day_stat_sz 营运数据天统计表（筛选，深圳用）
+			增加表：business_screen_condition 营运数据天统计筛选条件
+			增加表：driver_sms_examine 驾驶员短信调查表
+			增加表：send_message_timer_info 定时下发报文表
+			增加表：driver_orders_all_stat 驾驶员订单表
+			增加表：single_iczero_car_day_stat 驾驶员订单表
+		</one>
+		
+		<one date="2015-09-30" modifier="huajian.hu">
+			增加表：single_business_filter_info 营运分时段过滤情况记录表（筛选，深圳用）
+			增加表：single_business_data_hour 营运信息基础表，与single_business_data_bs结构相同（筛选，深圳用）
+			增加表：driver_work_level_month 驾驶员技能等级月统计表（深圳用）
+			增加表：driver_star_grade_month 驾驶员星级月统计表（深圳用）
+			增加表：service_quality_credit_regular 驾驶员服务质量信誉细则表（深圳用）
+			增加表：manage_quantization_regular 驾驶员服务量化细则表（深圳用）
+			增加表：service_credit_plan1  驾驶员服务质量信誉计划主表（深圳用）
+			增加表：manage_quantization_plan1 驾驶员服务量化计划主表（深圳用）
+			增加表：service_credit_plan2 驾驶员服务质量信誉计划附表（深圳用）
+			增加表：manage_quantization_plan2 驾驶员服务量化计划附表（深圳用）
+			增加表：manage_quantization_assessment 驾驶员服务量化考核表（深圳用）
+			增加表：service_credit_assessment 驾驶员服务质量信誉考核表（深圳用）
+			增加表：section_table 考核科室维护表（深圳用）
+			增加表：section_person 考核科室与用户关联表（深圳用）
+			增加表：driver_company_month 驾驶员月统计表（深圳用）
+			增加表：car_deleted 已删除或者已修改的车辆表，与car表结构相同，并增加一个delete_time date字段（深圳用）
+			增加表：driver_deleted 已删除或者已修改的驾驶员表，与driver表结构相同，并增加一个delete_time date字段（深圳用）
+		</one>
+	</modify>
+	
+	<group desc="用户权限表">
+		
+		<table name="ana_user_personal_setup" desc="用户个性化设置">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="account" type="VARCHAR2(32)" isNull="false" desc="用户账号"/>
+			<col name="p_type" type="number(4)" isNull="false" desc="个性化信息类型 1代表用户的收藏夹信息"/>
+			<col name="info" type="varchar2(2048)" isNull="true" desc="文本信息,json字符串"/>
+			<col name="clob_info" type="CLOB" isNull="true" desc=""/>
+			<col name="blob_info" type="BLOB" isNull="true" desc=""/>
+			<col name="update_time" type="date" isNull="false" default="sysdate" desc="更新时间"/>
+			
+			<index name="ana_user_personal_setup_ind1" on="account"/>
+		</table>
+		
+		<table name="ANA_USER_GROUP" desc="用户角色组">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="NAME" type="VARCHAR2(128)" isNull="false" desc=""/>
+			<col name="REMARK" type="VARCHAR2(512)" isNull="true" desc=""/>
+			<col name="COM_ID" type="number(10)" isNull="false" desc="所属机构"/>
+			<col name="skin" type="VARCHAR2(64)" isNull="true" default="default" desc=""/>
+			<col name="CREATE_TIME" type="DATE" isNull="false" default="sysdate" desc=""/>
+			<col name="creator" type="number(10)" isNull="false" desc="创建者"/>
+		</table>
+		
+		<table name="ANA_GROUP_PURVIEW" desc="">
+			<col name="REF_ID" type="NUMBER(10)" isNull="false" desc=""/>
+			<col name="TYPE" type="VARCHAR2(16)" isNull="false" desc=""/>
+			<col name="VALUE_ID" type="VARCHAR2(1024)" isNull="false" desc=""/>			
+			<index name="GROUP_PURVIEW_INDEX1" on="REF_ID"/>
+		</table>
+		<table name="ANA_USER_ROLE_BIND" desc="用户角色绑定">
+			<col name="ROLE_ID" type="NUMBER(10)" isNull="true" desc=""/>
+			<col name="USER_ID" type="NUMBER(10)" isNull="true" desc=""/>
+			<col name="CREATE_TIME" type="DATE" isNull="true" desc=""/>
+			
+			<index name="USER_ROLE_BIND_index1" on="ROLE_ID"/>
+			<index name="USER_ROLE_BIND_index2" on="USER_ID"/>
+		</table>
+		<table name="action_schedule_task" desc="任务执行信息表">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="NAME" type="VARCHAR2(128)" isNull="false" desc=""/>
+			<col name="type" type="number(4)" isNull="false" desc="1代表报文 2代表拍照"/>
+			<col name="schedule_time" type="date" isNull="false" desc="计划执行时间"/>
+			<col name="exec_time" type="date" isNull="true" desc="实际执行时间"/>
+			<col name="status" type="number(4)" isNull="false" desc="0代表未执行 1代表执行成功 2代表执行失败"/>
+			<col name="dest_num" type="number(10)" isNull="true" desc="影响车辆数"/>
+			<col name="exec_content" type="varchar2(2048)" isNull="false" desc="json格式数据"/>
+			<col name="exec_result" type="clob" isNull="true"/>
+			<col name="remark" type="VARCHAR2(1024)" isNull="true" desc=""/>
+			<col name="COM_ID" type="number(10)" isNull="false" desc="所属机构"/>
+			<col name="modify_time" type="DATE" isNull="false" default="sysdate" desc=""/>
+			<col name="CREATE_TIME" type="DATE" isNull="false" default="sysdate" desc=""/>
+			<col name="creator" type="varchar2(64)" isNull="false" desc="创建者"/>
+			
+			<index name="action_schedule_task_index1" on="CREATE_TIME"/>
+		</table>
+	</group>
+	
+	<group desc="订单数据分析表">
+		<table name="ana_finish_duration_halfhour" desc="电调业务完成时长分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc="有效单位到小时"/>
+			<col name="finish_num" type="number(10)" desc="完成数"/>
+			<col name="duration" type="number(10)" desc="完成总时长"/>
+			<col name="record_time" type="date" desc="创建日期" default="sysdate"/>
+			
+			<index name="order_finish_duration_stat_index1" on="stat_time"/>
+		</table>
+		<table name="ana_order_data_hour_stat" desc="订单数据小时分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc="有效单位到小时"/>
+			
+			<col name="order_num" type="number(10)" desc="订单总数"/>
+			<col name="success_num" type="number(10)" desc="成功调派数"/>
+			<col name="moved_num" type="number(10)" desc="调离数"/>
+			<col name="no_offer_num" type="number(10)" desc="无供数"/>
+			<col name="cancel_num" type="number(10)" desc="用户取消数"/>
+			<col name="user_no_finish_num" type="number(10)" desc="用户放空数量"/>
+			<col name="driver_no_finish_num" type="number(10)" desc="驾驶员放空数量"/>
+			<col name="other_order_num" type="number(10)" desc="其它未知数量"/>
+			
+			<col name="brief_taxi_num" type="number(10)" desc="下发简明总数"/>
+			<col name="taxi_bid_num" type="number(10)" desc="抢标车数量"/>
+			<col name="taxi_refuse_num" type="number(10)" desc="车辆拒标数量"/>
+			<col name="taxi_timeout_num" type="number(10)" desc="超时无响应数量"/>
+			
+			<col name="dispatch_success_duration" type="number(10)" desc="单位秒，所有完成调派的总时长，包含预约单，调派成功减去开始调派时间。包括成功数和两个放空数"/>
+			<col name="failure_duration" type="number(10)" desc="单位秒，所有取消和无供的总时长，不含预约单"/>
+			
+			<col name="record_time" type="date" desc="创建日期" default="sysdate"/>
+			
+			<index name="order_data_hour_stat_index1" on="stat_time"/>
+		</table>
+		
+		<table name="ana_servicde_data_hour_stat" desc="电调服务率分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc="有效单位到小时"/>
+			<col name="total_num" type="number(10)" desc="业务差次总数"/>
+			<col name="order_num" type="number(10)" desc="电调订单总数"/>
+			<col name="success_num" type="number(10)" desc="成功调派数"/>
+			<col name="record_time" type="date" desc="创建日期" default="sysdate"/>
+			
+			<index name="order_servicde_stat_index1" on="stat_time"/>
+		</table>
+		
+		<table name="ana_order_type_stat" desc="订单类型分析服务">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc=""/>
+			<col name="order_type" type="number(10)" isNull="false" desc=""/>
+			<col name="total_num" type="number(10)" desc="总数"/>
+			<col name="success_num" type="number(10)" desc="成功数"/>
+			<col name="wugong_num" type="number(10)" desc="无供数"/>
+			<col name="cancel_num" type="number(10)" desc="取消数"/>
+			<col name="fangkong_num" type="number(10)" desc="放空数"/>
+			<col name="record_time" type="date" desc="创建日期" default="sysdate"/>
+			
+			<index name="order_type_stat_index1" on="stat_time"/>
+		</table>
+		
+		<table name="ana_taxi_status_hour_stat" desc="车辆实载率统计分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc="有效单位到小时"/>
+			
+			<col name="company_id" type="number(10)" isNull="false" desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)" isNull="false" desc="对应公司名称"/>
+			
+			<col name="vacant_num" type="number(10)" desc="空车总数"/>
+			<col name="occupy_num" type="number(10)" desc="重车调派数"/>
+			<col name="task_num" type="number(10)" desc="任务车数"/>
+			<col name="unknown_num" type="number(10)" desc="未知状态数"/>
+			
+			<col name="record_time" type="date" desc="创建日期" default="sysdate"/>
+			
+			<index name="taxi_status_hour_stat_index1" on="stat_time,company_id"/>
+		</table>
+		
+		<table name="ANA_SINGLE_CAR_DAY_STAT" desc="单车营运数据统计分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(10)" isNull="false" desc="车牌号码"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>	
+<!-- 			<col name="area_id" type="number(10)"  desc="区域ID" default="1" isNull="false"/> -->
+			<col name="work_times" type="number(10)" desc="营运次数"/>
+			<col name="work_times_first" type="number(10)" desc="小于起步价公里数的营运次数"/>
+			<col name="work_times_second" type="number(10)" desc="大于起步价公里数小于最大公里数的营运次数"/>
+			<col name="work_times_third" type="number(10)" desc="大于最大公里数的营运次数"/>
+			<col name="total_distance" type="number(10,2)" desc="行驶里程"/>
+			<col name="work_distance" type="number(10,2)" desc="营运里程"/>
+			<col name="work_distance_first" type="number(10,2)" desc="小于起步价公里数的营运里程"/>
+			<col name="work_distance_second" type="number(10,2)" desc="大于起步价公里数小于最大公里数的营运里程"/>
+			<col name="work_distance_third" type="number(10,2)" desc="大于最大公里数的营运里程"/>
+			<col name="work_income_first" type="number(10,2)" desc="小于起步价公里数的营运收入"/>
+			<col name="work_income_second" type="number(10,2)" desc="大于起步价公里数小于最大公里数的营运收入"/>
+			<col name="work_income_third" type="number(10,2)" desc="大于最大公里数的营运收入"/>
+			<col name="free_distance" type="number(10,2)" desc="空驶里程"/>
+			<col name="waiting_hour" type="number(10)" desc="低速等候时间(时)"/>
+			<col name="waiting_minute" type="number(10)" desc="低速等候时间(分)"/>
+			<col name="waiting_second" type="number(10)" desc="低速等候时间(秒)"/>
+			<col name="total_income" type="number(10,2)" desc="总收入"/>
+			<col name="work_income" type="number(10,2)" desc="计价收入"/>
+			<col name="work_income_day" type="number(10,2)" desc="白天计价收入(5:00-23:00)"/>
+			<col name="work_income_night" type="number(10,2)" desc="晚上计价收入(23:00-5:00)"/>
+			<col name="fuel_income" type="number(10,2)" desc="燃油附加收入"/>
+			<col name="manager_cost" type="number(10,2)" desc="管理费"/>
+			<col name="telcall_times" type="number(10)" desc="电召次数"/>
+			<col name="telcall_finish_times" type="number(10)" desc="电召完成次数"/>
+			<col name="service_evaluate_times" type="number(10)" desc="服务评价次数"/>
+			<col name="satisfisfy_times" type="number(10)" desc="服务评价等级次数(满意)"/>
+			<col name="unsatisfy_times" type="number(10)" desc="服务评价等级次数(不满意)"/>
+			<col name="highlySatisfisfy_times" type="number(10)" desc="服务评价等级次数(非常满意)"/>
+			<col name="unJudge_times" type="number(10)" desc="服务评价等级次数(未评价)"/>
+			<col name="work_date" type="varchar2(30)" desc="工作日期"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="统计开始时间"/>
+			<col name="end_time" type="date" desc="统计结束时间"/>
+			<col name="dispatch_percent" type="number(10,2)" desc="电召率"/>
+			<col name="load_percent" type="number(10,2)" desc="载客率"/>		
+			
+			<index name="idx_ana_single_car_palteNo" on="plate_no"/>
+		</table>
+		<table name="ana_single_car_halfhour_stat" desc="单车营运数据统计分析表(半小时)">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(10)" isNull="false" desc="车牌号码"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="waiting_hour" type="number(10)" desc="低速等候时间(时)"/>
+			<col name="waiting_minute" type="number(10)" desc="低速等候时间(分)"/>
+			<col name="waiting_second" type="number(10)" desc="低速等候时间(秒)"/>
+			<col name="total_income" type="number(10,2)" desc="总收入"/>
+			<col name="work_times" type="number(10)" desc="营运次数"/>
+			<col name="work_date" type="varchar2(30)" desc="工作日期(到半小时)"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>	
+			
+			<index name="idx_ana_single_car_palteNo" on="plate_no"/>
+		</table>
+		
+		<table name="ANA_SINGLE_CAR_TPYE_STAT" desc="车型营运数据小时统计分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="type_id" type="number(10)" isNull="false" desc="车型Id"/>
+			<col name="car_total_num" type="number(10)" desc="车辆总数"/>
+			<col name="work_times" type="number(10)" desc="营运次数"/>
+			<col name="total_distance" type="number(10,2)" desc="行驶里程"/>
+			<col name="work_distance" type="number(10,2)" desc="营运里程"/>
+			<col name="free_distance" type="number(10,2)" desc="空驶里程"/>
+			<col name="waiting_hour" type="number(10)" desc="低速等候时间(时)"/>
+			<col name="waiting_minute" type="number(10)" desc="低速等候时间(分)"/>
+			<col name="waiting_second" type="number(10)" desc="低速等候时间(秒)"/>			
+			<col name="work_income" type="number(10,2)" desc="计价收入"/>
+			<col name="fuel_income" type="number(10,2)" desc="燃油附加收入"/>
+			<col name="total_income" type="number(10,2)" desc="总收入"/>		
+			<col name="work_times_first" type="number(10)" desc="小于起步价公里数的营运次数"/>
+			<col name="work_times_second" type="number(10)" desc="大于起步价公里数小于最大公里数的营运次数"/>
+			<col name="work_times_third" type="number(10)" desc="大于最大公里数的营运次数"/>
+			<col name="work_distance_first" type="number(10,2)" desc="小于起步价公里数的营运里程"/>
+			<col name="work_distance_second" type="number(10,2)" desc="大于起步价公里数小于最大公里数的营运里程"/>
+			<col name="work_distance_third" type="number(10,2)" desc="大于最大公里数的营运里程"/>
+			<col name="work_income_first" type="number(10,2)" desc="小于起步价公里数的营运收入"/>
+			<col name="work_income_second" type="number(10,2)" desc="大于起步价公里数小于最大公里数的营运收入"/>
+			<col name="work_income_third" type="number(10,2)" desc="大于最大公里数的营运收入"/>			
+			<col name="stat_time" type="date" desc="工作日期,到小时"/>
+			<col name="record_time" type="date" desc="统计日期"/>
+			
+			<index name="idx_ana_single_cartype_1" on="stat_time"/>
+		</table>
+		
+		<table name="ANA_SINGLE_DRIVER_DAY_STAT" desc="驾驶员营运数据统计分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(20)" isNull="false" desc="车牌号码"/>
+			<col name="driver_id" type="varchar2(30)" isNull="false" desc="驾驶员编号"/>
+			<col name="driver_name" type="varchar2(30)"  desc="驾驶员姓名"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="driver_grade" type="number(10)" desc="星级"/>
+			<col name="duration_time" type="number(10,2)" desc="当班时长"/>
+			<col name="work_times" type="number(10)" desc="营运次数"/>
+			<col name="total_distance" type="number(10,2)" desc="行驶里程"/>
+			<col name="work_distance" type="number(10,2)" desc="营运里程"/>
+			<col name="free_distance" type="number(10,2)" desc="空驶里程"/>
+			<col name="waiting_hour" type="number(10)" desc="低速等候时间(时)"/>
+			<col name="waiting_minute" type="number(10)" desc="低速等候时间(分)"/>
+			<col name="waiting_second" type="number(10)" desc="低速等候时间(秒)"/>
+			<col name="total_income" type="number(10,2)" desc="总收入"/>
+			<col name="work_income" type="number(10,2)" desc="计价收入"/>
+			<col name="fuel_income" type="number(10,2)" desc="燃油附加收入"/>
+			<col name="telcall_times" type="number(10)" desc="电召次数"/>
+			<col name="telcall_finish_times" type="number(10)" desc="电召完成次数"/>
+			<col name="service_evaluate_times" type="number(10)" desc="服务评价次数"/>
+			<col name="satisfisfy_times" type="number(10)" desc="服务评价等级次数(满意)"/>
+			<col name="unsatisfy_times" type="number(10)" desc="服务评价等级次数(不满意)"/>
+			<col name="highlySatisfisfy_times" type="number(10)" desc="服务评价等级次数(非常满意)"/>
+			<col name="unJudge_times" type="number(10)" desc="服务评价等级次数(未评价)"/>
+			<col name="work_date" type="varchar2(30)" desc="工作日期"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="统计开始时间"/>
+			<col name="end_time" type="date" desc="统计结束时间"/>
+			<col name="business_time" type="number(10)" desc="营运时间，单位秒"/>
+			
+			<index name="idx_ana_single_driver_driverId" on="driver_id"/>
+			<index name="idx_ana_single_driver_com" on="company_id"/>
+			<index name="idx_ana_single_driver_carno" on="plate_no"/>
+			<index name="idx_ana_single_driver_worktime" on="work_date"/>
+			
+		</table>
+		
+		<table name="ANA_COMPANY_DAY_STAT" desc="公司营运数据统计分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="car_number" type="number(10)" desc="车辆数"/>
+			<col name="work_car_number" type="number(10)" desc="营运车辆数"/>
+			<col name="work_times" type="number(10)" desc="总营运次数"/>
+			<col name="total_distance" type="number(10,2)" desc="总行驶里程"/>
+			<col name="work_distance" type="number(10,2)" desc="总营运里程"/>
+			<col name="free_distance" type="number(10,2)" desc="总空驶里程"/>
+			<col name="waiting_hour" type="number(10)" desc="低速等候时间(时)"/>
+			<col name="waiting_minute" type="number(10)" desc="低速等候时间(分)"/>
+			<col name="waiting_second" type="number(10)" desc="低速等候时间(秒)"/>
+			<col name="total_income" type="number(10,2)" desc="总收入"/>
+			<col name="work_income" type="number(10,2)" desc="计价收入"/>
+			<col name="fuel_income" type="number(10,2)" desc="燃油附加收入"/>
+			<col name="telcall_times" type="number(10)" desc="电召次数"/>
+			<col name="telcall_finish_times" type="number(10)" desc="电召完成次数"/>
+			<col name="service_evaluate_times" type="number(10)" desc="服务评价次数"/>
+			<col name="satisfisfy_times" type="number(10)" desc="服务评价等级次数(满意)"/>
+			<col name="unsatisfy_times" type="number(10)" desc="服务评价等级次数(不满意)"/>
+			<col name="highlySatisfisfy_times" type="number(10)" desc="服务评价等级次数(非常满意)"/>
+			<col name="unJudge_times" type="number(10)" desc="服务评价等级次数(未评价)"/>
+			<col name="work_date" type="varchar2(30)" desc="工作日期"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="统计开始时间"/>
+			<col name="end_time" type="date" desc="统计结束时间"/>
+			
+			<index name="idx_ana_company_companyId" on="company_id"/>
+			<index name="idx_ana_company_worktime" on="work_date"/>
+		</table>
+		
+		<table name="key_area_car_stat" desc="重点区域车辆监控">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="area_id" type="number(10)" desc="区域id"/>
+			<col name="area_name" type="varchar2(64)" desc="区域名称"/>
+			<col name="stat_time" type="date" desc="统计时间"/>
+			<col name="hour" type="number(5)" desc="统计小时"/>
+			<col name="all_num" type="number(10)" desc="总车数"/>
+			<col name="free_num" type="number(10)" desc="空车数"/>
+			<col name="load_num" type="number(10)" desc="重车数"/>
+			<col name="f2l_num" type="number(10)" desc="空变重数"/>
+			<col name="f2l_detail" type="blob" desc="空变重详情"/>
+			<col name="l2f_num" type="number(10)" desc="重变空数"/>
+			<col name="l2f_detail" type="blob" desc="重变空详情"/>
+			<col name="order_num" type="number(10)" desc="订单业务量"/>
+			<col name="totalin_num" type="number(10)" desc="所有进入该区域的总数"/>
+			<col name="totalin_detail" type="blob" desc="所有进入该区域的车辆详情"/>
+		</table>
+		
+		<table name="ana_driver_home_stat" desc="驾驶员居住地统计">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" desc="统计时间"/>
+			<col name="lo" type="number(12,8)" desc="经度"/>
+			<col name="la" type="number(12,8)" desc="纬度"/>
+			<col name="name" type="number(10)" desc="地标名称"/>
+			<col name="total_car" type="number(10)" desc="车辆总数"/>
+			<col name="car_detail" type="blob" desc="车辆详情"/>
+		</table>
+		
+		<table name="ana_key_area_car_inout_stat" desc="重点区域车辆进出统计">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="area_id" type="number(10)" desc="区域id"/>
+			<col name="area_name" type="varchar2(64)" desc="区域名称"/>
+			<col name="stat_time" type="date" desc="统计时间"/>
+			<col name="hour" type="number(5)" desc="统计小时"/>
+			<col name="free_in" type="number(10)" desc="空车进入数"/>
+			<col name="free_out" type="number(10)" desc="空车离开数"/>
+			<col name="load_in" type="number(10)" desc="重车进入数"/>
+			<col name="load_out" type="number(10)" desc="重车离开数"/>
+			<col name="red_free_in" type="number(10)" default="0" desc="红的空车进入数"/>
+			<col name="red_free_out" type="number(10)" default="0" desc="红的空车离开数"/>
+			<col name="red_load_in" type="number(10)" default="0" desc="红的重车进入数"/>
+			<col name="red_load_out" type="number(10)" default="0" desc="红的重车离开数"/>
+			<col name="green_free_in" type="number(10)" default="0" desc="绿的空车进入数"/>
+			<col name="green_free_out" type="number(10)" default="0" desc="绿的空车离开数"/>
+			<col name="green_load_in" type="number(10)" default="0" desc="绿的重车进入数"/>
+			<col name="green_load_out" type="number(10)" default="0" desc="绿的重车离开数"/>
+			<col name="create_time" type="date" desc="记录时间"/>
+			<col name="car_type" type="number(10)" desc="车辆所属区域"/>
+			
+			<index name="ANA_KEY_AREA_CAR_INOUT_INDEX" on="STAT_TIME"/>
+		</table>		
+		<table name="ANA_VEH_WORK_DURA_TIME_STAT" desc="车辆实时连续工作时间统计表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(10)" isNull="false" desc="车牌号码"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="work_duration" type="number(10,2)"  desc="停驶时间(小时)"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="停驶开始时间"/>
+			<col name="end_time" type="date" desc="停驶结束时间"/>
+			
+			<index name="idx_ana_vehicle_work_time_palteNo" on="plate_no"/>
+		</table>
+			
+		<table name="ANA_VEH_WORK_DURA_STAT" desc="车辆实工作时长分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(10)" isNull="false" desc="车牌号码"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="work_duration" type="number(10)"  desc="工作时长(分)"/>
+			<col name="idle_duration" type="number(10)"  desc="工作时长(分)"/>
+			<col name="stat_time" type="date" desc="统计日期"/>
+			<col name="record_time" type="date" default="sysdate" desc="记录时间"/>
+			
+			<index name="idx_ana_vehicle_work_dura_palteNo" on="plate_no"/>
+			<index name="idx_ana_vehicle_work_dura_time" on="analysis_time"/>
+		</table>
+		
+		
+		<table name="T_MESSAGE_SEND_RECORD" desc="报文发送记录表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(10)" isNull="false" desc="车牌号码"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="mdt_id" type="number(10)"  desc="接受终端号"/>
+			<col name="msg_content" type="varchar2(1000)"  desc="报文内容"/>
+			<col name="msg_type" type="number(10)"  desc="报文类型(1-超时停车提醒，2-超时驾驶提醒, 3-未登录点火提醒)"/>
+			<col name="send_time" type="date" desc="发送时间"/>
+			
+			<index name="t_message_send_record_index1" on="plate_no"/>
+		</table>
+		
+		<table name="ANA_SPECIAL_TOPIC_VEHICLE" desc="车辆营运数据专题统计分析">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="area_id" type="number(10)"  desc="区域ID"/>
+			<col name="vehicle_numbers" type="number(10)"  desc="统计车辆数"/>
+			<col name="work_times" type="number(10)" desc="营运次数"/>
+			<col name="work_times_first" type="number(10)" desc="小于起步价公里数的营运次数"/>
+			<col name="work_times_second" type="number(10)" desc="大于起步价公里数小于最大公里数的营运次数"/>
+			<col name="work_times_third" type="number(10)" desc="大于最大公里数的营运次数"/>
+			<col name="total_distance" type="number(10,2)" desc="行驶里程"/>
+			<col name="work_distance" type="number(10,2)" desc="营运里程"/>
+			<col name="work_distance_first" type="number(10,2)" desc="小于起步价公里数的营运里程"/>
+			<col name="work_distance_second" type="number(10,2)" desc="大于起步价公里数小于最大公里数的营运里程"/>
+			<col name="work_distance_third" type="number(10,2)" desc="大于最大公里数的营运里程"/>
+			<col name="work_income_first" type="number(10,2)" desc="小于起步价公里数的营运收入"/>
+			<col name="work_income_second" type="number(10,2)" desc="大于起步价公里数小于最大公里数的营运收入"/>
+			<col name="work_income_third" type="number(10,2)" desc="大于最大公里数的营运收入"/>
+			<col name="free_distance" type="number(10,2)" desc="空驶里程"/>
+			<col name="waiting_time" type="number(10)" desc="低速等候时间(分)"/>
+			<col name="total_income" type="number(10,2)" desc="总收入"/>
+			<col name="work_income" type="number(10,2)" desc="计价收入"/>
+			<col name="work_income_day" type="number(10,2)" desc="白天计价收入(5:00-23:00)"/>
+			<col name="work_income_night" type="number(10,2)" desc="晚上计价收入(23:00-5:00)"/>
+			<col name="fuel_income" type="number(10,2)" desc="燃油附加收入"/>
+			<col name="manager_cost" type="number(10,2)" desc="管理费"/>
+			<col name="work_date" type="date" desc="工作日期"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			
+			<index name="idx_ana_special_topic_operate_areaId" on="area_id"/>
+			<index name="idx_ana_special_topic_operate_workDate" on="work_date"/>
+		</table>		
+		
+		<table name="ana_business_month_stat" desc="月业务量时间分布分析服务">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc=""/>
+			<col name="org_id" type="number(10)" desc="企业ID"/>
+			<col name="dest_no" type="varchar2(64)" desc="车牌号码"/>
+			<col name="hour_0" type="number(10)" desc=""/>
+			<col name="hour_1" type="number(10)" desc=""/>
+			<col name="hour_2" type="number(10)" desc=""/>
+			<col name="hour_3" type="number(10)" desc=""/>
+			<col name="hour_4" type="number(10)" desc=""/>
+			<col name="hour_5" type="number(10)" desc=""/>
+			<col name="hour_6" type="number(10)" desc=""/>
+			<col name="hour_7" type="number(10)" desc=""/>
+			<col name="hour_8" type="number(10)" desc=""/>
+			<col name="hour_9" type="number(10)" desc=""/>
+			<col name="hour_10" type="number(10)" desc=""/>
+			<col name="hour_11" type="number(10)" desc=""/>
+			<col name="hour_12" type="number(10)" desc=""/>
+			<col name="hour_13" type="number(10)" desc=""/>
+			<col name="hour_14" type="number(10)" desc=""/>
+			<col name="hour_15" type="number(10)" desc=""/>
+			<col name="hour_16" type="number(10)" desc=""/>
+			<col name="hour_17" type="number(10)" desc=""/>
+			<col name="hour_18" type="number(10)" desc=""/>
+			<col name="hour_19" type="number(10)" desc=""/>
+			<col name="hour_20" type="number(10)" desc=""/>
+			<col name="hour_21" type="number(10)" desc=""/>
+			<col name="hour_22" type="number(10)" desc=""/>
+			<col name="hour_23" type="number(10)" desc=""/>
+			<col name="stat_type" type="number(10)" desc="0日统计、1月统计"/>
+			<col name="crate_date" type="date" desc="创建日期" default="sysdate"/>
+			<col name="total" type="number(10)" desc=""/>
+			<col name="car_type" type="number(10)" desc=""/>
+			<index name="ana_business_month_stat_index1" on="stat_time"/>
+		</table>
+		
+		<table name="ana_order_month_stat" desc="月调度业务时间分布分析服务">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc=""/>
+			<col name="org_id" type="number(10)" desc="企业ID"/>
+			<col name="dest_no" type="varchar2(64)" desc="车牌号码"/>
+			<col name="hour_0" type="number(10)" desc=""/>
+			<col name="hour_1" type="number(10)" desc=""/>
+			<col name="hour_2" type="number(10)" desc=""/>
+			<col name="hour_3" type="number(10)" desc=""/>
+			<col name="hour_4" type="number(10)" desc=""/>
+			<col name="hour_5" type="number(10)" desc=""/>
+			<col name="hour_6" type="number(10)" desc=""/>
+			<col name="hour_7" type="number(10)" desc=""/>
+			<col name="hour_8" type="number(10)" desc=""/>
+			<col name="hour_9" type="number(10)" desc=""/>
+			<col name="hour_10" type="number(10)" desc=""/>
+			<col name="hour_11" type="number(10)" desc=""/>
+			<col name="hour_12" type="number(10)" desc=""/>
+			<col name="hour_13" type="number(10)" desc=""/>
+			<col name="hour_14" type="number(10)" desc=""/>
+			<col name="hour_15" type="number(10)" desc=""/>
+			<col name="hour_16" type="number(10)" desc=""/>
+			<col name="hour_17" type="number(10)" desc=""/>
+			<col name="hour_18" type="number(10)" desc=""/>
+			<col name="hour_19" type="number(10)" desc=""/>
+			<col name="hour_20" type="number(10)" desc=""/>
+			<col name="hour_21" type="number(10)" desc=""/>
+			<col name="hour_22" type="number(10)" desc=""/>
+			<col name="hour_23" type="number(10)" desc=""/>
+			<col name="stat_type" type="number(10)" desc="0日统计、1月统计"/>
+			<col name="crate_date" type="date" desc="创建日期" default="sysdate"/>
+			<col name="total" type="number(10)" desc=""/>
+			<col name="car_type" type="number(10)" desc=""/>
+			<index name="ana_order_month_stat_index1" on="stat_time"/>
+		</table>
+		
+		<table name="ANA_DRIVER_STATUS_DAY_STAT" desc="驾驶员连续工作时长统计">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="company_id" type="number(10)"  desc="机构id"/>
+			<col name="company_name" type="varchar2(200)"  desc="机构名称"/>
+			<col name="plate_no" type="varchar2(20)" desc="车牌号码"/>
+			<col name="driver_id" type="varchar2(30)" desc="驾驶员工号"/>
+			<col name="driver_name" type="varchar2(30)" desc="驾驶员姓名"/>
+			<col name="work_date" type="varchar2(20)" desc="工作日期"/>
+			<col name="work_minutes" type="float" desc="工作时长"/>
+			<col name="flameout_minutes" type="float" desc="熄火时长"/>
+			<col name="unknown_minutes" type="float" desc="未知时长"/>
+			<col name="online_minutes" type="float" desc="在线时长"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="开始时间"/>
+			<col name="end_time" type="date" desc="结束时间"/>
+
+			<index name="idx_ana_driver_status_day_areaId" on="driver_id"/>
+			<index name="idx_ana_driver_status_day_workDate" on="work_date"/>
+		</table>
+		
+		<table name="ANA_VEHICLE_STATUS_DAY_STAT" desc="车辆在线时长统计">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="company_id" type="number(10)"  desc="机构id"/>
+			<col name="company_name" type="varchar2(200)"  desc="机构名称"/>
+			<col name="plate_no" type="varchar2(20)" desc="车牌号码"/>
+			<col name="work_date" type="date" desc="工作日期"/>
+			<col name="online_minutes" type="float" desc="在线时长"/>
+			<col name="offline_minutes" type="float" desc="离线时长"/>
+			<col name="report_times" type="number(10)" desc="汇报次数"/>
+			<col name="location_times" type="number(10)" desc="定位次数"/>
+			<col name="analysis_date" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="开始时间"/>
+			<col name="end_time" type="date" desc="结束时间"/>
+
+			<index name="idx_ana_vehicle_status_day_palteNo" on="plate_no"/>
+			<index name="idx_ana_vehicle_status_day_workDate" on="work_date"/>
+		</table>
+		
+		<table name="ana_order_company_stat" desc="企业电召业务统计分析表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc="统计日期"/>
+			<col name="company_id" type="number(10)" desc="企业ID"/>
+			<col name="order_total" type="number(10)" desc="电调订单总数"/>
+			<col name="car_total" type="number(10)" desc="企业车辆总数"/>
+			<col name="car_avg" type="number(10)" desc="单车日均"/>
+		</table>
+		
+		<table name="ana_driver_unlogout_stat" desc="驾驶员未签退信息统计">
+			<col name="SERVICE_NO" type="VARCHAR2(32)"/>
+			<col name="DRIVER_NAME" type="VARCHAR2(32)" desc="驾驶员姓名"/>
+			<col name="DISPATCH_CAR_NO" type="VARCHAR2(32)" desc="车牌号码"/>
+			<col name="TERM_NAME" type="VARCHAR2(256)" desc="公司名称"/>
+			<col name="TERM_ID" type="number(10)" desc="公司id"/>
+			<col name="WORK_DATE" type="DATE" desc="工作日期"/>
+			<col name="CREATE_TIME" type="DATE" desc="创建日期"/>
+			<col name="last_login_time" type="DATE" desc="最后登录日期"/>
+		</table>
+		
+		<table name="PAY_ACCOUNT_INFO" desc="驾驶员支付账户信息">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="SERVICE_NO" type="varchar2(20)" isNull="false" desc="驾驶员服务卡号"/>
+			<col name="PAY_ACCOUNT" type="varchar2(100)"  desc="支付宝账号"/>
+			<col name="CFT_ACCOUNT" type="varchar2(100)"  desc="财付通账号"/>
+			<col name="UNIION_PAY_ACCOUNT" type="varchar2(100)"  desc="银联账号"/>
+			<col name="CREATER" type="number(10)" desc="创建者"/>
+			<col name="CREATE_DATE" type="date" desc="创建日期"/>
+			
+			<index name="PAY_SERVICE_NO_INDEX" on="SERVICE_NO"/>
+		</table>
+		
+		<table name="DRIVER_ORDERS_STAT" desc="驾驶员接单数日统计分析数据">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date"  desc="统计日期" default="sysdate"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="false" desc="车牌号"/>
+			<col name="SERVICE_NO" type="varchar2(30)" isNull="false" desc="驾驶员服务卡号"/>
+			<col name="TAXI_COMPANY" type="number(10)"  desc="机构"/>
+			<col name="START_TIME" type="date" desc="开始时间"/>
+			<col name="END_TIME" type="date" desc="结束时间"/>
+			<col name="ORDER_NUM" type="number(10)"  desc="接单数"/>
+			<col name="RECODE_TIME" type="date"  desc="记录时间" default="sysdate"/>
+			
+			<index name="DRIVER_ORDERS_STAT_INDEX1" on="CAR_NO"/>
+			<index name="DRIVER_ORDERS_STAT_INDEX2" on="SERVICE_NO"/>
+			<index name="DRIVER_ORDERS_STAT_INDEX3" on="TAXI_COMPANY"/>
+		</table>
+		
+		<table name="ANA_VEHICLE_OFFLINE_STAT" desc="车辆离线信息日统计">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="STAT_TIME" type="date"  desc="统计日期" isNull="true" default="sysdate"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="true" desc="车牌号"/>
+			<col name="MDT_ID" type="number(10)"  isNull="true" desc="终端号"/>
+			<col name="TAXI_COMPANY" type="number(10)"  isNull="true" desc="机构"/>	
+			<col name="TAXI_COMPANY_NAME" type="varchar2(128)"  isNull="true" desc="机构"/>			
+			<col name="MIN_OFFLINE_TIME" type="NUMBER(10)" isNull="true" desc="最小一次离线时长,分钟"/>
+			<col name="MIN_START_TIME" type="date" isNull="true" desc="最小一次开始时间"/>
+			<col name="MIN_END_TIME" type="date" isNull="true" desc="最小一次结束时间"/>			
+			<col name="MAX_OFFLINE_TIME" type="NUMBER(10)" isNull="true" desc="最大一次离线时长,分钟"/>
+			<col name="MAX_START_TIME" type="date" isNull="true" desc="最大一次开始时间"/>
+			<col name="MAX_END_TIME" type="date" isNull="true" desc="最大一次结束时间"/>			
+			<col name="TOTAL_TIMES" type="number(10)"  isNull="true" desc="总次数"/>
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+			
+			<index name="VEHICLE_OFFLINE_STAT_INDEX1" on="CAR_NO"/>
+			<index name="VEHICLE_OFFLINE_STAT_INDEX2" on="STAT_TIME"/>
+			<index name="VEHICLE_OFFLINE_STAT_INDEX3" on="TAXI_COMPANY"/>
+		</table>
+		
+		<table name="ANA_VEHICLE_OFFLINE_DETAIL" desc="车辆离线详情">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="STAT_TIME" type="date"  desc="统计日期" isNull="true" default="sysdate"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="true" desc="车牌号"/>
+			<col name="MDT_ID" type="number(10)"  isNull="true" desc="终端号"/>
+			<col name="TAXI_COMPANY" type="number(10)"  isNull="true" desc="机构"/>	
+			<col name="TAXI_COMPANY_NAME" type="varchar2(128)"  isNull="true" desc="机构"/>			
+			<col name="OFFLINE_TIME" type="NUMBER(10)" isNull="true" desc="离线时长,分钟"/>
+			<col name="START_TIME" type="date" isNull="true" desc="开始时间"/>
+			<col name="END_TIME" type="date" isNull="true" desc="结束时间"/>
+			<col name="START_LO" type="NUMBER(12,8)" isNull="true" desc="开始点经度"/>
+			<col name="START_LA" type="NUMBER(12,8)" isNull="true" desc="开始点纬度"/>	
+			<col name="END_LO" type="NUMBER(12,8)" isNull="true" desc="结束点经度"/>
+			<col name="END_LA" type="NUMBER(12,8)" isNull="true" desc="结束点纬度"/>
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+		</table>
+		<table name="ANA_VEHICLE_OFFLINE_REALTIME" desc="车辆离线实时记录表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="true" desc="车牌号"/>
+			<col name="MDT_ID" type="number(10)"  isNull="true" desc="终端号"/>
+			<col name="type_id" type="number(10)"  isNull="true" desc="车辆类型"/>
+			<col name="TAXI_COMPANY" type="number(10)"  isNull="true" desc="机构"/>	
+			<col name="TAXI_COMPANY_NAME" type="varchar2(128)"  isNull="true" desc="机构"/>			
+			<col name="OFFLINE_TIME" type="NUMBER(10)" isNull="true" desc="离线时长,分钟"/>
+			<col name="START_TIME" type="date" isNull="true" desc="开始时间"/>
+			<col name="END_TIME" type="date" isNull="true" desc="结束时间"/>
+			<col name="START_LO" type="NUMBER(12,8)" isNull="true" desc="开始点经度"/>
+			<col name="START_LA" type="NUMBER(12,8)" isNull="true" desc="开始点纬度"/>	
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+			<col name="last_point_info" type="varchar2(512)"  isNull="true" desc="最后一次位置汇报信息"/>
+			<index name="OFFLINE_realtime_car_no" on="CAR_NO"/>
+			<index name="OFFLINE_realtime_START_TIME" on="START_TIME"/>
+		</table>
+
+  		<table name="ANA_COMPANY_BUSINESS_DAY_STAT" desc="单日里程利用率时段分布记录表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="COMPANY_ID" type="NUMBER(10)" isNull="true" desc="机构ID"/>
+			<col name="COMPANY_NAME" type="varchar2(256)"  isNull="true" desc="机构名称"/>			
+			<col name="WORK_TIMES" type="NUMBER(10)" isNull="true" desc="载客次数"/>
+			<col name="TOTAL_DISTANCE" type="NUMBER(10,2)" isNull="true" desc="总里程"/>
+			<col name="WORK_DISTANCE" type="NUMBER(10,2)" isNull="true" desc="营运里程"/>
+			<col name="FREE_DISTANCE" type="NUMBER(10,2)" isNull="true" desc="空驶里程"/>
+			<col name="TOTAL_INCOME" type="NUMBER(10,2)" isNull="true" desc="总营收"/>
+			<col name="ANALYSIS_TIME" type="date" isNull="true" desc="统计时间"/>
+			<col name="CREATE_DATE" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+			
+			<index name="IDX_ANA_COMPANY_BUSINESS" on="COMPANY_ID"/>
+		</table>
+		
+		<table name="ANA_VEHICLE_BUSINESS_STAT" desc="车辆营运历史记录表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="true" desc="车牌号"/>
+			<col name="MDT_ID" type="number(10)"  isNull="true" desc="终端号"/>
+			<col name="TYPE_ID" type="number(10)"  isNull="true" desc="车辆类型"/>
+			<col name="TAXI_COMPANY" type="number(10)"  isNull="true" desc="机构"/>	
+			<col name="TAXI_COMPANY_NAME" type="varchar2(128)"  isNull="true" desc="机构"/>			
+			<col name="FREE_BUSY" type="NUMBER(10)" isNull="true" desc="空变重次数"/>
+			<col name="BUSY_FREE" type="NUMBER(10)" isNull="true" desc="重变空次数"/>
+			<col name="STAT_TIME" type="date" isNull="true" desc="统计时间"/>
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+			<index name="BUSINESS_STAT_CAR_NO" on="CAR_NO"/>
+			<index name="BUSINESS_STAT_STAT_TIME" on="STAT_TIME"/>
+		</table>
+		<table name="ANA_VEHICLE_BUSINESS_REALTIME" desc="车辆营运实时记录表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="true" desc="车牌号"/>
+			<col name="MDT_ID" type="number(10)"  isNull="true" desc="终端号"/>
+			<col name="TYPE_ID" type="number(10)"  isNull="true" desc="车辆类型"/>
+			<col name="TAXI_COMPANY" type="number(10)"  isNull="true" desc="机构"/>	
+			<col name="TAXI_COMPANY_NAME" type="varchar2(128)"  isNull="true" desc="机构"/>			
+			<col name="FREE_BUSY" type="NUMBER(10)" isNull="true" desc="空变重次数"/>
+			<col name="BUSY_FREE" type="NUMBER(10)" isNull="true" desc="重变空次数"/>
+			<col name="STAT_TIME" type="date" isNull="true" desc="统计时间"/>
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+			<index name="BUSINESS_REALTIME_CAR_NO" on="CAR_NO"/>
+			<index name="BUSINESS_REALTIME_STAT_TIME" on="STAT_TIME"/>
+		</table>
+		<table name="ANA_VEHICLE_STOP_STAT" desc="车辆停驶历史统计表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CAR_NO" type="varchar2(30)" isNull="true" desc="车牌号"/>
+			<col name="MDT_ID" type="number(10)"  isNull="true" desc="终端号"/>
+			<col name="TYPE_ID" type="number(10)"  isNull="true" desc="车辆类型"/>
+			<col name="TAXI_COMPANY" type="number(10)"  isNull="true" desc="机构"/>	
+			<col name="TAXI_COMPANY_NAME" type="varchar2(128)"  isNull="true" desc="机构"/>			
+			<col name="start_time" type="date" isNull="true" desc="开始时间"/>
+			<col name="end_time" type="date" isNull="true" desc="结束时间"/>
+			<col name="stop_TIME" type="NUMBER(10)" isNull="true" desc="停驶时长,分钟"/>
+			<col name="START_LO" type="NUMBER(12,8)" isNull="true" desc="开始点经度"/>
+			<col name="START_LA" type="NUMBER(12,8)" isNull="true" desc="开始点纬度"/>	
+			<col name="STAT_TIME" type="date" isNull="true" desc="统计时间"/>
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+			<index name="STOP_STAT_CAR_NO" on="CAR_NO"/>
+			<index name="STOP_STAT_STAT_TIME" on="STAT_TIME"/>
+			<index name="STOP_STAT_start_time" on="start_time"/>
+			<index name="STOP_STAT_end_time" on="end_time"/>
+		</table>
+		<table name="ANA_VEHICLE_STOP_TIME_STAT" desc="车辆实时停驶时间统计表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(10)" isNull="false" desc="车牌号码"/>
+			<col name="company_id" type="number(10)"  desc="对应公司ID"/>
+			<col name="company_name" type="varchar2(128)"  desc="对应公司名称"/>
+			<col name="stop_time" type="number(10,2)"  desc="停驶时间(小时)"/>
+			<col name="analysis_time" type="date" desc="统计日期"/>
+			<col name="start_time" type="date" desc="停驶开始时间"/>
+			<col name="end_time" type="date" desc="停驶结束时间"/>
+			
+			<index name="idx_ana_vehicle_stop_time_palteNo" on="plate_no"/>
+		</table>
+		
+		<table name="ana_order_day_stat" desc="日调度业务统计信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" isNull="false" desc="统计时间"/>
+			<col name="car_company" type="number(10)"  desc="对应公司ID"/>
+			<col name="total" type="number(10)"  desc="对应公司名称"/>
+			<col name="yougong_num" type="number(10)"  desc="有供数"/>
+			<col name="finish_num" type="number(10)" desc="完成数"/>
+			<col name="cancel_num" type="number(10)" desc="取消数"/>
+			<col name="fangkong_num" type="number(10)" desc="放空数"/>
+			
+			<index name="ana_order_day_stat_index1" on="stat_time"/>
+			<index name="ana_order_day_stat_index2" on="car_company"/>
+		</table>
+		
+		<table name="ANA_BUSINESS_DAY_STAT" desc="营运数据日统计报表分析数据">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date"  desc="统计日期" default="sysdate"/>
+			<col name="CAR_NUM" type="number(10)" isNull="false" desc="车辆数"/>
+			<col name="DISPATCH_ORDER_NUM" type="number(10)" isNull="false" desc="电调次数"/>
+			<col name="TOTAL_NUM" type="number(10)" isNull="false" desc="总车次"/>
+   			<col name="DISPATCH_PRICE" type="number(12,2)" isNull="false" desc="电调营收(元)"/>
+   			<col name="BUSINESS_PRICE" type="number(12,2)" isNull="false" desc="营收(元)"/>
+   			<col name="RUN_KM" type="number(12,2)" isNull="false" desc="行驶公里"/>
+   			<col name="BUSINESS_KM" type="number(12,2)" isNull="false" desc="营运公里"/>
+   			<col name="KM_PARCENT" type="number(10,2)" isNull="false" desc="公里利用率"/>
+   			<col name="FREE_KM" type="number(12,2)" isNull="false" desc="空驶公里"/>
+       		<col name="FREE_PARCENT" type="number(10,2)" isNull="false" desc="空驶率"/>
+       		<col name="BUSINESS_TIMES" type="number(10,2)" isNull="false" desc="营运时间"/>
+       		<col name="PRICE_PARCENT" type="number(10,2)" isNull="false" desc="百公里营收"/>
+       		<col name="AVG_NUM" type="number(12,2)" isNull="false" desc="单车日均车次"/>
+       		<col name="AVG_PRICE" type="number(10,2)" isNull="false" desc="平均营收"/>
+       		<col name="avg_wait_time" type="number(10,2)" isNull="false" desc="平均单差等会时长（秒）"/>
+       		<col name="total_wait_time" type="number(10,2)" isNull="false" desc="总等会时长（小时）"/>
+			<col name="RECODE_TIME" type="date"  desc="记录时间" default="sysdate"/>
+			<col name="normal_order_total" type="number(10)" isNull="false" desc="普通订单次数"/>
+			<col name="first_order_total" type="number(10)" isNull="false" desc="合乘第一笔次数"/>
+			<col name="second_order_total" type="number(10)" isNull="false" desc="合乘第二笔次数"/>
+			<col name="OPERATION_NUM" type="number(10)" isNull="false" desc="运营车数"/>
+		</table>
+		
+		<table name="ANA_OPERATOR_JX_STAT" desc="接线员绩效考核">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="STAT_TIME" type="date"  desc="统计日期" isNull="true" />
+			<col name="USER_ID" type="NUMBER(10)" isNull="true" desc="接线员工号"/>
+			<col name="USER_NAME" type="varchar2(50)" isNull="true" desc="接线员姓名"/>
+			<col name="TOTAL" type="number(10)"  isNull="true" desc="接单数"/>
+			<col name="CANCELTOTAL" type="number(10)"  isNull="true" desc="取消数"/>	
+			<col name="FANGKONGTOTAL" type="number(10)"  isNull="true" desc="放空数"/>			
+			<col name="MODIFYTOTAL" type="NUMBER(10)" isNull="true" desc="修改书"/>
+			<col name="RECODE_TIME" type="date"  isNull="true" desc="记录时间" default="sysdate"/>
+		</table>
+	</group>
+	
+	<group desc="宁波出租车管理平台用户信息记录表">
+		<table name="mtaxi_user_info" desc="宁波出租车管理平台用户信息记录表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="account" type="varchar2(64)" isNull="false" desc="车牌号"/>
+			<col name="user_name" type="varchar2(32)" isNull="false" desc="司机工号"/>
+			<col name="password" type="varchar2(64)" isNull="false" desc="司机姓名"/>
+		</table>
+	</group>
+	
+	<group desc="黑名单车辆信息记录表">
+		<table name="simple_black_vehicles" desc="黑名单车辆信息记录表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="v_plate" type="varchar2(64)" isNull="false" desc="车牌号"/>
+			<col name="v_driver_id" type="varchar2(32)" isNull="false" desc="司机工号"/>
+			<col name="v_driver_name" type="varchar2(64)" isNull="false" desc="司机姓名"/>
+			<col name="v_group_id" type="number(10)" desc="所属车队"/>
+			<col name="v_company_id" type="number(10)" desc="所属公司"/>
+			<col name="black_type" type="varchar2(1)" isNull="false" default="1" desc="1:未年检;2:应报废"/>
+			<col name="create_time" type="date" isNull="false" desc="创建日期" default="sysdate"/>
+		</table>
+	</group>
+	<group desc="企业详细信息记录表">
+		<table name="company_info" desc="企业详细信息记录表">
+			<col name="cy_id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="cy_company_id" type="number(10)" isNull="false" desc="企业编号"/>
+			<col name="cy_linkman_name" type="varchar2(64)" isNull="false" desc="联系人姓名"/>
+			<col name="cy_linkman_phone" type="varchar2(11)" isNull="false" desc="联系人手机号"/>
+			<col name="cy_linkman_qq" type="varchar2(20)" isNull="false" desc="联系人QQ"/>
+			<col name="cy_fax_number" type="varchar2(11)" isNull="false" desc="传真号"/>
+			<col name="cy_linkman_email" type="varchar2(50)" isNull="false"  desc="联系人邮箱"/>
+		</table>
+	</group>
+	<group desc="通知信息记录表">
+		<table name="information_info" desc="通知信息记录表">
+			<col name="i_id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="i_title" type="varchar2(50)" isNull="false" desc="通知标题"/>
+			<col name="i_content" type="varchar2(500)" isNull="false" desc="通知内容"/>
+			<col name="i_createdate" type="date" isNull="false" desc="创建时间"/>
+			<col name="i_send_doc" type="varchar2(100)" desc="下发文档"/>
+			<col name="i_type" type="varchar2(10)" isNull="false" desc="通知类型"/>
+			<col name="i_sendperson_id" type="number(10)" desc="下发人编号"/>
+			<col name="i_send_time" type="date" desc="下发日期"/>
+			<col name="i_status" type="number(10)" isNull="false" desc="通知状态"/>
+		</table>
+		<table name="information_company_info" desc="下发回复信息记录表">
+			<col name="ic_id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="i_id" type="number(10)" isNull="false" desc="通知编号"/>
+			<col name="cy_id" type="number(10)" isNull="false" desc="企业编号"/>
+			<col name="back_person_id" type="number(10)" desc="反馈人姓名"/>
+			<col name="back_time" type="date" desc="反馈时间"/>
+			<col name="status" type="number(10)" isNull="false" default="0" desc="1:已反馈;2:已上传"/>
+			<col name="reply_doc" type="varchar2(100)" desc="回复文档名称"/>
+			<col name="replyperson_id" type="number(10)" desc="回复人编号"/>
+			<col name="reply_time" type="date" desc="回复日期"/>
+			<col name="replay_num" type="number(10)" isNull="false" default="0"/>
+		</table>
+		
+		<table name="ANA_CAR_NUM_STAT" desc="每日统计车辆数">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="stat_time" type="DATE" isNull="true" desc="工作日期"/>
+			<col name="total_car_num" type="number(10)" isNull="true" desc="总车辆数"/>
+			<col name="total_online_car_num" type="NUMBER(10)" isNull="true" desc="在线车辆数"/>			
+			<col name="total_point_num" type="number(10)" isNull="true" desc="所有车辆总汇报点"/>
+			<col name="total_point_position_num" type="number(10)" isNull="true" desc="所有车辆总定位点"/>
+			<col name="create_time" type="date" isNull="false" desc="创建日期" default="sysdate"/>
+		</table>
+		<table name="ANA_CAR_NUM_STAT_DETAIL" desc="每日统计车辆数汇报情况">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="stat_time" type="DATE" isNull="true" desc="工作日期"/>
+			<col name="car_no" type="varchar2(64)" isNull="true" desc="车牌号码"/>
+			<col name="mdt_id" type="NUMBER(10)" isNull="true" desc="终端号"/>
+			<col name="point_total_num" type="number(10)" isNull="true" desc="总汇报点"/>
+			<col name="point_position_num" type="number(10)" isNull="true" desc="定位汇报点"/>
+			<col name="create_time" type="date" isNull="false" desc="创建日期" default="sysdate"/>
+		</table>
+	<table name="company_train_info" desc="企业(学习、培训)记录表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="company_id" type="number(10)" desc="企业编号"/>
+			<col name="train_title" type="varchar2(50)" desc="培训主题"/>
+			<col name="train_content" type="varchar2(2000)" desc="培训内容"/>
+			<col name="fill_content_name" type="varchar2(20)" desc="培训内容记录人"/>
+			<col name="fill_content_time" type="date" desc="培训内容记录时间"/>
+			<col name="train_time" type="date" desc="培训时间"/>
+			<col name="train_address" type="varchar2(50)" desc="培训地址"/>
+			<col name="train_compere" type="varchar2(20)" desc="主持人"/>
+			<col name="must_num" type="number(10)" desc="应参会人数"/>
+			<col name="reality_num" type="number(10)" desc="实际参会人数"/>
+			<col name="manage_name" type="varchar2(500)" desc="参会管理人员"/>
+			<col name="driver_name_file" type="varchar2(500)" desc="参会驾驶员签名扫描件"/>
+			<col name="not_attend_meeting_name" type="varchar2(1000)" desc="未参会人员名单"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+			<col name="status" type="number(10)" desc="记录状态 0,新创建;1,审核中;2,已归档;3,审核失败"/>
+			<col name="send_auditor" type="number(10)" desc="送审人"/>
+			<col name="send_audit_time" type="date" desc="送审时间"/>
+			<col name="auditor" type="number(10)" desc="审核人"/>
+			<col name="audit_time" type="date" desc="审核时间"/>
+			<col name="mend_meet_time" type="date" desc="补会时间"/>
+			<col name="meet_type" type="number(10)" desc="会议类型 0,非补会;1,补会"/>
+		</table>
+		<table>
+		    <col name="car_id" type="varchar2(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+		    <col name="type_id" type="varchar2(10)" isNull="false" />
+		    <col name="term_id" type="varchar2(6)" isNull="false" />
+		    <col name="color" type="varchar2(10)" />
+		    <col name="mdt_id" type="number(15)" />
+		    <col name="credit_card" type="char(1)" />
+		    <col name="team_id" type="number(10)" />
+		    <col name="sign_id" type="number(10)" />
+		    <col name="sign_no" type="varchar2(10)" />
+		    <col name="serial_no" type="varchar2(20)" />
+		    <col name="last_order_time" type="date" />
+		    <col name="engine_no" type="varchar2(50)"/>
+		    <col name="trade_no" type="varchar2(50)" />
+		    <col name="valid_for" type="number(10)" />
+		    <col name="valid_from" type="date"/>
+		    <col name="valid_to" type="date" />
+		    <col name="photo" type="varchar2(100)" />
+		    <col name="led_version" type="varchar2(50)" />
+		    <col name="led_factory" type="varchar2(50)" />
+		    <col name="led_modify_time" type="date" />
+		    <col name="phpj" type="number(20)" />
+		    <col name="is_blacklist" type="number(1)" />
+		    <col name="blacklist_update_time" type="date" />
+		    <col name="rf_status" type="number(1)" />
+		    <col name="airport" type="number(1)" isNull="false"/>
+		    <col name="last_order_id" type="number(10)" />
+		    <col name="due_date" type="date" />
+		    <col name="car_frame_id" type="varchar2(30)" />
+		    <col name="license_color" type="varchar2(16)" />
+		    <col name="company" type="varchar2(256)"/>
+		    <col name="service_status" type="number(10)" />
+		    <col name="plat_id" type="number(10)"/>
+		    <col name="query_pwd" type="varchar2(120)"/>
+		    <col name="operational_hour" type="number(15)"/>
+		    <col name="video_message" type="varchar2(256)" desc="视频信息"/>
+		</table>
+		
+		<table name="car_basic_info" desc="车辆基本信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="company_id" type="number(10)" desc="单位编号"/>
+			<col name="car_no" type="varchar2(20)"  desc="车牌号(唯一)" />
+			<col name="car_card_color" type="varchar2(10)" desc="车牌颜色"/>
+			<col name="car_source" type="number(10)" desc="车俩来源 新购,0;转籍,1;过户,2;"/>
+			<col name="reg_date" type="date" desc="注册日期"/>
+			<col name="car_category" type="number(2)" desc="车辆类别 红色出租车,0;绿色出租车,1;电动出租车,2;"/>
+			<col name="car_model" type="varchar2(20)" desc="型号"/>
+			<col name="car_id" type="varchar2(20)" desc="编号"/>
+			<col name="operate_organiz_mode" type="number(2)" desc="经营组织方式 承包,0;直接经营,1;"/>
+			<col name="transport_card" type="varchar2(20)" desc="道路运输证编号"/>
+			<col name="taximeter_model" type="varchar2(20)" desc="税控计价器型号"/>
+			<col name="taximeter_card" type="varchar2(20)" desc="税控计价器编号"/>
+			<col name="create_time" type="date" desc="创建日期"/>
+			<col name="status" type="number(2)" desc="状态"/>
+		</table>
+		<table name="car_para_info" desc="车辆参数与配置登记表">
+			<col name="pid" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="id" type="number(10)"  desc="车辆基本信息编号"/>
+			<col name="brand" type="varchar2(20)"  desc="厂牌"/>
+			<col name="car_model" type="varchar2(20)"  desc="型号"/>
+			<col name="leave_factory_date" type="date"  desc="出厂日期"/>
+			<col name="produce_address" type="number(2)"  desc="产地 国产车,0;进口车,1;"/>
+			<col name="vin_id" type="varchar2(20)"  desc="vin号（车架号）"/>
+			<col name="chassis_model" type="varchar2(20)"  desc="底盘型号"/>
+			<col name="contour_long" type="number(10,2)"  desc="外廓长"/>
+			<col name="contour_width" type="number(10,2)"  desc="外廓宽"/>
+			<col name="contour_height" type="number(10,2)"  desc="外廓高"/>
+			<col name="weight" type="number(10,2)"  desc="总质量"/>
+			<col name="axle_num" type="number(10)"  desc="车轴数"/>
+			<col name="drive_axle_num" type="number(10)"  desc="驱动轴数"/>
+			<col name="person_num" type="number(10)"  desc="乘员数"/>
+			<col name="drag_weight" type="number(10,2)"  desc="牵引总质量"/>
+			<col name="total_wheel" type="number(10)"  desc="车轮总数"/>
+			<col name="drive_total_wheel" type="number(10)"  desc="驱动车轮总数"/>
+			<col name="motor_model" type="varchar2(20)"  desc="发动机型号"/>
+			<col name="motor_power" type="number(10,2)"  desc="发动机功率"/>
+			<col name="motor_number" type="varchar2(20)"  desc="发动机号码"/>
+			<col name="motor_discharge" type="number(10,2)"  desc="发动机排量"/>
+			<col name="fuel_type" type="number(2)"  desc="燃料种类 电动,0;汽油,1;其他,2;"/>
+			<col name="discharge_standard" type="number(2)"  desc="排放标准 国Ⅲ,0;国Ⅳ,1;"/>
+			<col name="tyre_num" type="number(10)"  desc="轮胎数"/>
+			<col name="tyre_type" type="number(10)"  desc="轮胎类型 子午线轮胎,0;无内胎子午线轮胎,1;非子午线轮胎,2;"/>
+			<col name="headlight" type="number(2)"  desc="前照灯制式 两灯,0;四灯,1;"/>
+			<col name="variator" type="number(2)"  desc="变数器形式 自动,0;手动,1;手自动一体,2;"/>
+			<col name="conditioner" type="number(2)"  desc="空调器 单制,0;双制,1;"/>
+			<col name="diverter" type="number(2)"  desc="转向器 动力转向,0;非动力转向,1;"/>
+			<col name="braking_type" type="number(2)"  desc="行车制动形式 气压制动,0;液压制动,1;气-液制动,2;盘式制动,3;鼓式制动,4;ABS装置,5;蹄片间隙自调,6;单回路,7;双回路,8;"/>
+			<col name="front_hang_type" type="number(2)"  desc="前轮悬挂形式 独立,0;非独立,1;气囊,2;"/>
+			<col name="front_leaf_num" type="number(10)"  desc="前轮板簧数"/>
+			<col name="back_hang_type" type="number(2)"  desc="后轮悬挂形式 独立,0;非独立,1;气囊,2;"/>
+			<col name="back_leaf_num" type="number(10)"  desc="后轮板簧数"/>
+			<col name="other_conf" type="varchar2(200)"  desc="其他配置"/>
+		</table>
+		<table name="car_repair_reg" desc="车辆维护与修理登记表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="cb_id" type="number(10)"  desc="车辆基本信息编号"/>
+			<col name="repair_date" type="date"  desc="维修日期"/>
+			<col name="run_course" type="number(10,2)"  desc="行驶里程"/>
+			<col name="repair_gategory" type="number(2)"  desc="维修类别 小修,0;二级维护,1;大修,2;总成修理,3;"/>
+			<col name="repair_content" type="varchar2(200)"  desc="维修内容"/>
+			<col name="company_id" type="number(10)"  desc="维修单位编号"/>
+			<col name="filename" type="varchar2(100)"  desc="附件"/>
+			<col name="reg_person" type="varchar2(10)"  desc="登记人"/>
+			<col name="entry_person_id" type="number(10)" desc="录入人"/>
+			<col name="create_time" type="date"  desc="录入时间"/>
+		</table>
+		<table name="car_check_reg" desc="车辆检测与评审登记表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="cb_id" type="number(10)"  desc="车辆基本信息编号"/>
+			<col name="check_date" type="date"  desc="检测日期"/>
+			<col name="check_content" type="varchar2(200)"  desc="检检测内容"/>
+			<col name="car_skill_grade" type="number(2)"  desc="车辆技术等级"/>
+			<col name="company_id" type="number(10)"  desc="检测单位编号"/>
+			<col name="filename" type="varchar2(100)"  desc="附件"/>
+			<col name="reg_person" type="varchar2(10)"  desc="登记人"/>
+			<col name="entry_person_id" type="number(10)"  desc="录入人"/>
+			<col name="create_time" type="date"  desc="录入时间"/>
+		</table>
+		<table name="car_accident_reg" desc="车辆交通事故登记表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="cb_id" type="number(10)"  desc="车辆基本信息编号"/>
+			<col name="accident_date" type="date"  desc="事故发生日期"/>
+			<col name="accident_type" type="number(2)"  desc="事故性质 轻微事故,0;一般事故,1;重大事故,2;特大事故,3；"/>
+			<col name="accident_duty" type="number(2)"  desc="事故责任 全部责任,0;主要责任,1;同等责任,2;次要责任,3;无责任,4;"/>
+			<col name="accident_gategory" type="number(2)"  desc="事故种类 人为事故,0;机械事故,1;"/>
+			<col name="accident_content" type="varchar2(200)"  desc="车辆损坏情况"/>
+			<col name="economics_loss" type="number(20,2)"  desc="企业直接经济损失"/>
+			<col name="filename" type="varchar2(100)"  desc="附件"/>
+			<col name="reg_person" type="varchar2(10)"  desc="登记人"/>
+			<col name="entry_person_id" type="number(10)"  desc="录入人"/>
+			<col name="create_time" type="date"  desc="录入时间"/>
+		</table>
+		<table name="driver_basic_info" desc="驾驶员基本信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="name" type="varchar2(20)"  desc="驾驶员姓名"/>
+			<col name="sex" type="VARCHAR2(10)"  desc="性别 男,男;女,女;"/>
+			<col name="birthday" type="date"  desc="出生年月"/>
+			<col name="marry" type="VARCHAR2(10)"  desc="婚否 已婚,已婚;未婚,未婚;"/>
+			<col name="health" type="varchar2(10)"  desc="健康状况"/>
+			<col name="height" type="number(2,2)"  desc="身高"/>
+			<col name="political_status" type="VARCHAR2(10)"  desc="政治面貌 党员,党员;团员,团员;群众,群众;其他,其他;"/>
+			<col name="domiciliary" type="varchar2(20)"  desc="籍贯"/>
+			<col name="education" type="VARCHAR2(10)"  desc="文化程度 小学,小学;初中,初中;大学,大学"/>
+			<col name="id_card" type="varchar2(18)"  desc="身份证号码"/>
+			<col name="mobile_phone" type="varchar2(11)"  desc="联系手机"/>
+			<col name="id_card_address" type="varchar2(100)"  desc="身份证住址"/>
+			<col name="id_card_phone" type="varchar2(11)"  desc="身份证住址联系电话"/>
+			<col name="LocalAddress" type="varchar2(100)"  desc="深圳住址"/>
+			<col name="Local_phone" type="varchar2(11)"  desc="深圳住址联系电话"/>
+			<col name="driverlicense_card" type="varchar2(50)"  desc="驾驶证编号"/>
+			<col name="driverlicense_FZJG" type="varchar2(100)"  desc="驾驶证发证机关"/>
+			<col name="license_date" type="date"  desc="初次领证日期"/>
+			<col name="allow_car_type" type="number(2)"  desc="准驾类型"/>
+			<col name="driverlicense_record_id" type="varchar2(20)"  desc="驾驶证档案编号"/>
+			<col name="work_qualification_FZJG" type="varchar2(100)"  desc="从业资格证发征机关"/>
+			<col name="work_qualification_id" type="varchar2(20)"  desc="从业资格证号码"/>
+			<col name="work_qualification_date" type="date"  desc="从业资格证有效日期"/>
+			<col name="remark" type="varchar2(200)"  desc="备注"/>
+			<col name="id_card_file" type="varchar2(500)"  desc="身份证复印件的扫描文件"/>
+			<col name="live_file" type="varchar2(500)"  desc="居住证复印件的扫描文件"/>
+			<col name="driverlicense_file" type="varchar2(500)"  desc="驾驶证复印件的扫描文件"/>
+			<col name="work_qualification_file" type="varchar2(500)"  desc="从业资格证复印件的扫描文件"/>
+			<col name="other" type="varchar2(500)"  desc="其他文件扫描件"/>
+			
+			<col name="zhufuban" type="varchar2(16)"  desc="主班副班"/>
+			<col name="car_id" type="VARCHAR2(64)"  desc="车牌号码"/>
+			<col name="TERM_ID" type="number(10)"  desc="公司id"/>
+			<col name="JIGUAN_SHENG" type="VARCHAR2(256)"  desc="籍贯省"/>
+			<col name="JIGUAN_SHI" type="VARCHAR2(256)"  desc="籍贯市"/>
+			<col name="SHENZHEN_AREA" type="VARCHAR2(256)"  desc="深圳行政区"/>
+			<col name="SHENZHEN_SUBURB" type="VARCHAR2(256)"  desc="深圳街道"/>
+			<col name="SHENZHEN_STREET" type="VARCHAR2(256)"  desc="深圳路名"/>
+			<col name="SHENZHEN_XIAOQU" type="VARCHAR2(256)"  desc="深圳小区"/>
+			<col name="SHENZHEN_DOOR" type="VARCHAR2(256)"  desc="深圳门牌号"/>
+			<col name="SHENZHEN_LO" type="NUMBER(12,8)"  desc="深圳住址经度"/>
+			<col name="SHENZHEN_LA" type="NUMBER(12,8)"  desc="深圳住址纬度"/>
+			<col name="IS_WORK" type="VARCHAR2(16)"  desc="是否在岗"/>
+			
+		</table>
+		<table name="driver_family_info" desc="家庭情况表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="name" type="varchar2(20)"  desc="姓名"/>
+			<col name="age" type="number(3)"  desc="年龄"/>
+			<col name="relation" type="varchar2(10)"  desc="关系"/>
+			<col name="work_unit" type="varchar2(100)"  desc="工作单位"/>
+			<col name="db_id" type="number(10)"  desc="驾驶员信息编号"/>
+		</table>
+		<table name="work_undergo_info" desc="工作经历表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="db_id" type="number(10)"  desc="驾驶员信息编号"/>
+			<col name="start_time" type="date"  desc="开始时间"/>
+			<col name="end_time" type="date"  desc="结束时间"/>
+			<col name="company_id" type="number(10)"  desc="工作单位编号"/>
+			<col name="position" type="varchar2(20)"  desc="职位"/>
+			<col name="remark" type="varchar2(200)"  desc="备注"/>
+			<col name="employ_file" type="varchar2(500)"  desc="聘用表扫描件"/>
+			<col name="agreement_file" type="varchar2(500)"  desc="劳动合同扫描件"/>
+			<col name="dimission_file" type="varchar2(500)"  desc="离职表扫描件"/>
+			<col name="create_time" type="date"  desc="年度考核记录编号"/>
+			
+		</table>
+		<table name="assess_years_info" desc="年度考核情况表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="db_id" type="number(10)"  desc="驾驶员信息编号"/>
+			<col name="assess_time" type="date"  desc="考核时间"/>
+			<col name="company_id" type="number(10)"  desc="考核企业"/>
+			<col name="center_com_num" type="number(5)"  desc="信息中心表扬宗数"/>
+			<col name="letter_com_num" type="number(5)"  desc="来人来信表扬宗数"/>
+			<col name="trade_com_num" type="number(5)"  desc="行业通报表扬宗数"/>
+			<col name="commonweal_num" type="number(5)"  desc="爱心团体活动次数"/>
+			<col name="criticize_num" type="number(5)"  desc="行业通报批评宗数"/>
+			<col name="assess_file" type="varchar2(200)"  desc="年度考核情况扫描件"/>
+			<col name="create_time" type="date"  desc="创建时间"/>
+		</table>
+		
+		<table name="driver_mark_info" desc="驾驶员积分表">
+			<col name="stat_time" type="DATE" isNull="false" isPrimay="true" desc="日期"/>
+			<col name="service_no" type="varchar2(50)" isPrimay="true" desc="驾驶员营运资格证号"/>
+			<col name="driver_name" type="varchar2(50)"  desc="驾驶员姓名"/>
+			<col name="car_no" type="varchar2(50)"  desc="车牌号"/>
+			<col name="mdt_id" type="number(10)"  desc="MDTID"/>
+			<col name="company_id" type="number(10)"  desc="企业ID"/>
+			<col name="company" type="varchar2(256)"  desc="企业"/>
+			<col name="start_gps_mark" type="number(10)"  desc="开始驾驶员积分"/>
+			<col name="end_gps_mark" type="number(10)"  desc="结束驾驶员积分"/>
+			<col name="create_time" type="date"  desc="创建时间"/>
+		</table>
+		
+		<table name="operator_call_info" desc="接线员接电话列表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="user_id" type="number(10)" isNull="true" desc="接线员ID"/>
+			<col name="user_name" type="varchar2(50)"  desc="接线员姓名"/>
+			<col name="phone" type="varchar2(50)"  desc="电话号码"/>
+			<col name="ip" type="varchar2(50)"  desc="IP"/>
+			<col name="create_time" type="date" default="sysdate" desc="创建时间"/>
+			
+			<index name="operator_call_info_index1" on="user_id"/>
+			<index name="operator_call_info_index2" on="create_time"/>
+		</table>
+		<table name="GPS_PLAT_INFO" desc="运营商表">
+			<col name="plat_id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plat_name" type="VARCHAR2(100)" isNull="false" desc="运营商名称"/>
+		</table>
+		
+		<table name="ana_alipay_day_stat" desc="支付宝交易统计表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="date" desc="统计日期"/>
+			<col name="total_num" type="number(10)"  desc="交易总数"/>
+			<col name="dianzhao_num" type="number(10)"  desc="电召交易数"/>
+			<col name="yangzhao_num" type="number(10)"  desc="扬召交易数"/>
+			<col name="ivr_num" type="number(10)" desc="IVR召车交易数"/>
+			<col name="other_num" type="number(10)" desc="自助召车交易数"/>
+			
+			<index name="ana_alipay_day_stat_index1" on="stat_time"/>
+		</table>
+		
+		<table name="driver_change_address" desc="驾驶员交班信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="service_no" type="varchar2(30)" desc="驾驶员资格证号"/>
+			<col name="day_address" type="varchar2(256)"  desc="白天交班地点"/>
+			<col name="night_address" type="varchar2(256)"  desc="夜晚交班地点"/>
+			<col name="creator" type="number(10)"  default="0" desc="创建人"/>
+			<col name="create_time" type="date"  default="sysdate" desc="创建时间"/>
+			
+			<index name="driver_change_address_index1" on="service_no"/>
+		</table>
+	</group>
+	
+	<group desc="违规异常数据">
+	    <table name="company_carnumber" desc="车辆指标数维护表">
+	        <col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+            <col name="company" type="varchar2(256)" desc="公司名"></col>
+	        <col name="car_type" type="number(2)" desc="车辆类型"></col>
+	        <col name="carnumber" type="number(22)" desc="车辆数"></col>
+	        <col name="company_id" type="number(22)" desc="公司id"></col>
+	    </table>
+	    
+	    <table name="company_carnumber_day" desc="车辆指标数快照表">
+	        <col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+            <col name="company" type="varchar2(256)" desc="公司名"></col>
+	        <col name="car_type" type="number(2)" desc="车辆类型"></col>
+	        <col name="carnumber" type="number(22)" desc="车辆数"></col>
+	        <col name="time" type="date" desc="采集数据的时间"></col>
+	        <col name="company_id" type="number(22)" desc="公司id"></col>
+	    </table>
+	
+		<table name="ana_2_5_hour_error_working" desc="凌晨2-5点违规营运">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(64)" isNull="true" desc="号牌号码"/>
+			<col name="taxi_no_color" type="varchar2(16)" isNull="true" desc="号牌颜色"/>
+			<col name="company_name" type="varchar2(128)"  desc="公司名称"/>
+			<col name="gps_server_name" type="varchar2(128)"  desc="运营商名称"/>
+			<col name="drive_distance" type="number(10)"  desc="单位公里"/>
+			<col name="total_point_num" type="number(10)"  desc="总点数"/>
+			<col name="point_num_with_speed" type="number(10)"  desc="有速度点数，速度超越某个值"/>
+			<col name="limit_distance" type="number(10)"  desc="运动距离上限"/>
+			<col name="limit_speed" type="number(10)"  desc="算作运动的速度值"/>
+			<col name="start_time" type="date"  desc="开始违规时间"/>
+			<col name="end_time" type="date" desc="结束违规时间"/>
+			<col name="stat_date" type="date" desc="统计日期"/>
+			<col name="create_time" type="date" default="sysdate" desc="创建时间"/>
+			
+			<col name="is_send" type="number(1)" default="0" desc="0 待发送 1已发送 2发送失败"/>
+			<col name="send_counter" type="number(10)" default="0" desc="发送计数"/>
+			<col name="last_send_time" type="date" desc="最近发送时间"/>
+			
+			<index name="ana_2_5_hour_error_working_ind1" on="dest_no"/>
+			<index name="ana_2_5_hour_error_working_ind2" on="company_name"/>
+			<index name="ana_2_5_hour_error_working_ind3" on="stat_date"/>
+		</table>
+		<table name="WELFARE_ADVERTISING" desc="公益广告信息表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CONTENT" type="VARCHAR2(256)"  desc="公益广告内容"/>
+			<col name="ST" type="VARCHAR2(10)"  desc="开始时段"/>
+			<col name="ET" type="VARCHAR2(10)"  desc="结束时段"/>
+			<col name="CREATER" type="NUMBER(10)"  desc="创建者"/>
+			<col name="CREATE_TIME" type="date"  desc="创建时间"/>
+		</table>
+		
+		<table name="civilized_language" desc="文明礼貌用语信息表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CONTENT" type="VARCHAR2(256)"  desc="公益广告内容"/>
+			<col name="CREATER" type="NUMBER(10)"  desc="创建者"/>
+			<col name="CREATE_TIME" type="date"  desc="创建时间"/>
+		</table>
+	
+	</group>
+	
+	
+	
+	
+	<group desc="视图信息">
+		<group desc="FOR_ITOP">
+			<view name="v_ana_dest_info" desc="车辆信息表的视图">
+				<sql>select mdt_id,car_id dest_no,a.term_id company_id,g.plat_id as gps_run_com_id,g.plat_name as gps_run_com_name, term_name company_name,alias_name company_alias_name,1 as area_id,c.id type_id,c.signs as type_name from car a left join term b on a.term_id = b.term_id left join car_type c on a.type_id = c.id left join gps_plat_info g on a.plat_id = g.plat_id where mdt_id > 0 and car_id is not null</sql>
+			</view>
+			<view name="v_ana_user_info" desc="系统用户信息视图">
+				<sql>select user_id id,account account, password password,role,user_name user_name,gender gender,sysdate - 10 valid_start,sysdate + 10 valid_end,to_number(term_id) com_id,to_number(team_id) team_id,to_number(service_id) service_id from operator union all select 900000000+id id,account,password,8 role,user_name,'0' gender,sysdate - 10 valid_start, sysdate + 10 valid_end,to_number('0') com_id,to_number('0') team_id,0 service_id from mtaxi_user_info</sql>
+			</view>
+			<view name="v_ana_company_info" desc="系统公司信息视图">
+				<sql>select term_id id,term_name name,alias_name,0 super_com_id from term union all select 0 id,'ROOT' name,'ROOT' alias_name,-1 super_com_id from dual</sql>
+			</view>
+			<view name="v_ana_driver_info" desc="系统驾驶员信息视图">
+				<sql>select TERM_ID,DRIVER_NAME,SERVICE_NO,CAR_ID,gps_mark from driver_info</sql>
+			</view>
+		</group>
+		
+		<!-- 
+		<group desc="FOR_ICLOUD">
+			<view name="v_ana_dest_info" desc="车辆信息表的视图">
+				<sql>select mdt_id,taxi_no dest_no,a.taxi_no_color,a.taxi_company company_id,GPS_SERVER_ID as gps_run_com_id,d.server_name as gps_run_com_name,taxi_company_name company_name,taxi_company_name company_alias_name,1 as area_id,taxi_type type_id,c.TAXI_TYPE_NAME as type_name from taxi_info a,taxi_company b ,taxi_type c,gps_server d where a.taxi_company=b.taxi_company_id and a.taxi_type=c.TAXI_TYPE_ID and a.gps_server_id=d.SERVER_ID and mdt_id > 0 and taxi_no is not null</sql>
+			</view>
+		</group>
+		 -->
+	</group>
+	
+	<group desc="企业服务评价日统计表">
+		<table name="ana_grade_company_daystat" desc="企业服务评价日统计表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="COMP_ID" type="number(10)" desc="公司id"/>
+			<col name="COMP_NAME" type="varchar2(512)"  desc="公司名称"/>
+			<col name="SATIFY_A" type="number(10)"  desc="非常满意的数量"/>
+			<col name="SATIFY_B" type="number(10)"  desc="满意的数量"/>
+			<col name="SATIFY_C" type="number(10)"  desc="不满意的数量"/>
+			<col name="SATIFY_D" type="number(10)"  desc="未评价的数量"/>
+			<col name="GRADE_TIME" type="DATE"  desc="统计日期"/>
+			<col name="STAT_TIME" type="DATE"  desc="创建时间"/>
+			<col name="TOTAL_GRADE" type="number(10)"  desc="总次数(满意，不满意，非常满意和未评价的总和)"/>
+			
+			<index name="ANA_GRADE_INDEX1" on="GRADE_TIME"/>
+			<index name="ANA_GRADE_INDEX2" on="COMP_ID"/>
+		</table>
+		
+		<table name="ana_driver_change_location" desc="驾驶员交接班地点分析">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="lo" type="number(12,8)" desc="经度"/>
+			<col name="la" type="number(12,8)"  desc="纬度"/>
+			<col name="info" type="clob"  desc="驾驶员信息记录"/>
+			<col name="driver_num" type="number(10)"  desc="驾驶员数量"/>
+			<col name="change_type" type="number(1)"  desc="交班类型，1上午 2下午"/>
+			<col name="stat_time" type="DATE"  desc="统计时间"/>
+			
+			<col name="record_time" type="DATE" default="sysdate"  desc=""/>
+			
+			<index name="ana_driver_change_loc_time1" on="stat_time"/>
+		</table>
+		<table name="ANA_TEAM_PERFORM_V_TABLE" desc="车队绩效分析">
+			<col name="inner_id" type="varchar2(256)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="team_id" type="number(10)" desc="车队id"/>
+			<col name="team_name" type="varchar2(256)"  desc="车队名称"/>
+			<col name="term_id" type="number(10)"  desc="分公司id"/>
+			<col name="term_name" type="varchar2(256)"  desc="分公司名称"/>
+			<col name="day" type="varchar2(32)"  desc="分析时间"/>
+			<col name="com_total" type="number(10)"  desc="总数"/>			
+			<col name="com_no_mdt" type="number(10)" desc="没有终端总数"/>
+			<col name="com_total_h" type="number(10)" desc="高峰总数"/>
+			<col name="com_no_mdt_h" type="number(10)"  desc="高峰没有终端总数"/>
+			<col name="car_count" type="number(10)"  desc="车辆总数"/>
+			<col name="move_total" type="number(10)"  desc="调离总数"/>
+			<col name="assign_total" type="number(10)"  desc="指派总数"/>
+			<col name="move_total_h" type="number(10)"  desc="高峰调离总数"/>			
+			<col name="assign_total_h" type="number(10)"  desc="高峰指派总数"/>
+			
+			<index name="ANA_TEAM_PERFORM_V_TABLE_day" on="day"/>
+		</table>
+		
+		<table name="ANA_CAR_STATISTIC_V_TABLE" desc="车辆统计分析">
+			<col name="id" type="varchar2(256)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="car_no" type="varchar2(32)" desc="车牌号码"/>			
+			<col name="time" type="varchar2(32)"  desc="统计时间"/>
+			<col name="timeDate" type="date"  desc="统计时间date"/>
+			<col name="total" type="number(10)"  desc="总数"/>
+			<col name="book_total" type="number(10)"  desc="预约总数"/>
+			<col name="finish_total" type="number(10)"  desc="完成总数"/>			
+			<col name="finish_book_total" type="number(10)" desc="完成预约总数"/>
+			<col name="finish_assign_total" type="number(10)" desc="完成指派总数"/>
+			<col name="high_peak_total" type="number(10)"  desc="高峰总数"/>
+			<col name="high_peak_book_total" type="number(10)"  desc="高峰总预约数"/>
+			<col name="high_peak_finish_total" type="number(10)"  desc="高峰完成总数"/>
+			<col name="high_peak_finish_book_total" type="number(10)"  desc="高峰完成预约总数"/>
+			<col name="high_peak_finish_assign_total" type="number(10)"  desc="高峰完成指派总数"/>			
+			
+			<index name="ANA_CAR_STATISTIC_V_TABLE_time" on="time"/>
+		</table>
+		<table name="ANA_DRIVER_STATISTIC_V_TABLE" desc="驾驶员统计分析">
+			<col name="id" type="varchar2(256)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="driver_id" type="varchar2(32)" desc="驾驶员id"/>			
+			<col name="day" type="varchar2(32)"  desc="统计时间"/>
+			<col name="total" type="number(10)"  desc="总数"/>
+			<col name="book_total" type="number(10)"  desc="预约总数"/>
+			<col name="finish_total" type="number(10)"  desc="完成总数"/>			
+			<col name="finish_book_total" type="number(10)" desc="完成预约总数"/>
+			<col name="finish_assign_total" type="number(10)" desc="完成指派总数"/>
+			<col name="high_peak_total" type="number(10)"  desc="高峰总数"/>
+			<col name="high_peak_book_total" type="number(10)"  desc="高峰总预约数"/>
+			<col name="finish_high_peak_total" type="number(10)"  desc="高峰完成总数"/>
+			<col name="finish_high_peak_book_total" type="number(10)"  desc="高峰完成预约总数"/>
+			<col name="high_peak_finish_assign_total" type="number(10)"  desc="高峰完成指派总数"/>			
+			
+			<index name="ANA_DRIVER_STATISTIC_day" on="day"/>
+		</table>
+		<table name="ANA_TEAM_STATISTIC_V_TABLE" desc="车队统计分析">
+			<col name="id" type="varchar2(256)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="car_team" type="varchar2(32)" desc="车队id"/>			
+			<col name="day" type="varchar2(32)"  desc="统计时间"/>
+			<col name="total" type="number(10)"  desc="总数"/>
+			<col name="FINISH_TOTAL" type="number(10)"  desc="完成总数"/>
+			<col name="cancel_total" type="number(10)"  desc="取消总数"/>			
+			<col name="fangkong_total" type="number(10)" desc="放空总数"/>
+			<col name="BOOK_TOTAL" type="number(10)" desc="预约总数"/>
+			<col name="book_cancel_total" type="number(10)"  desc="预约取消总数"/>
+			<col name="book_fangkong_total" type="number(10)"  desc="约数放空"/>
+			<col name="book_finish_total" type="number(10)"  desc="预约完成"/>
+			<col name="finish_assign_total" type="number(10)"  desc="指派完成"/>
+			
+			<col name="HIGH_PEAK_TOTAL" type="number(10)"  desc="高峰订单总数"/>
+			<col name="high_peak_finish_total" type="number(10)"  desc="高峰完成总数"/>			
+			<col name="high_peak_cancel_total" type="number(10)" desc="高峰取消总数"/>
+			<col name="high_peak_fangkong_total" type="number(10)" desc="高峰放空总数"/>
+			<col name="high_peak_book_total" type="number(10)"  desc="高峰预约总数"/>
+			<col name="high_peak_book_cancel_total" type="number(10)"  desc="高峰预约取消总数"/>
+			<col name="high_peak_book_fangkong_total" type="number(10)"  desc="高峰预约放空总数"/>
+			<col name="high_peak_book_finish_total" type="number(10)"  desc="高峰预约完成总数"/>
+			<col name="high_peak_finish_assign_total" type="number(10)"  desc="高峰完成指派总数"/>		
+			
+			<index name="ANA_TEAM_STATISTIC_day" on="day"/>
+		</table>
+		
+		<table name="MEDIA_CHECK_EXECUTE_RESULT" desc="多媒体抽检结果表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="CAR_NO" type="varchar2(100)" desc="车牌号码"/>			
+			<col name="MEDIA_TYPE" type="number(1)"  desc="媒体类型 0照片 1录音"/>
+			<col name="CONTENT" type="varchar2(200)"  desc="结果描述"/>
+			<col name="CHECK_TIME" type="DATE"  desc="抽检时间"/>		
+			
+			<index name="MEDIA_CHECK_INDEX1" on="CAR_NO"/>
+			<index name="MEDIA_CHECK_INDEX2" on="CHECK_TIME"/>
+			<index name="MEDIA_CHECK_INDEX3" on="MEDIA_TYPE"/>
+		</table>
+		
+		<table name="MEDIA_ZIP_INFO" desc="多媒体抽检文件压缩存储信息">
+			<col name="ID" type="varchar2(256)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="COMPANY_ID" type="number(10)" desc="企业id"/>			
+			<col name="FILE_PATH" type="varchar2(256)"  desc="压缩文件路径"/>
+			<col name="ZIP_DATE" type="DATE"  desc="抽检压缩时间"/>
+		</table>
+		
+		<table name="COMPANY_DESC" desc="企业简介信息">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="COMPANY_ID" type="number(10)" desc="企业id"/>			
+			<col name="CONTENT" type="CLOB"  desc="简介内容"/>
+			<col name="CREATE_TIME" type="DATE"  desc="创建时间"/>
+			<col name="CREATOR" type="number(10)" desc="创建者"/>		
+		</table>
+		<table name="car_in_out_history_info" desc="车辆跨界历史记录">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="car_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="company_id" type="number(10)" desc="企业id"/>			
+			<col name="company_name" type="varchar2(50)"  desc="企业名"/>
+			<col name="plat_id" type="number(10)" desc="运营商id"/>			
+			<col name="plat_name" type="varchar2(50)"  desc="运营商名"/>
+			<col name="query_time" type="DATE"  desc="统计日期"/>
+			<col name="out_time" type="DATE"  desc="出城、绿的进关时间"/>
+			<col name="in_time" type="DATE"  desc="返城、绿的出关时间"/>
+			<col name="s_status" type="number(2)" desc="开始状态"/>	
+			<col name="e_status" type="number(3)" desc="结束状态"/>	
+			<col name="s_lo" type="number(30,14)" desc="开始经度"/>	
+			<col name="s_la" type="number(30,14)" desc="开始纬度"/>	
+			<col name="e_lo" type="number(30,14)" desc="结束经度"/>	
+			<col name="e_la" type="number(30,14)" desc="结束纬度"/>	
+			<col name="s_speed" type="number(10,2)" desc="开始速度"/>	
+			<col name="e_speed" type="number(10,2)" desc="结束速度"/>		
+			<col name="type" type="number(2)" desc="类型 出城,0;入关,1"/>	
+		</table>
+		<table name="car_area_plan_info" desc="投放计划">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plan_name" type="varchar2(50)" isNull="false" desc="计划名称"/>
+			<col name="start_time" type="DATE"  desc="投放开始日期"/>
+			<col name="end_time" type="DATE"  desc="投放结束日期"/>
+			<col name="area_id" type="number(10)" desc="驻点区域编号"/>	
+			<col name="status" type="number(2)" desc="状态 录入,0;正投放,1;已到期,2"/>
+			<col name="record_time" type="DATE"  desc="记录时间时间"/>	
+			<col name="user_id" type="number(10)"  desc="记录人编号"/>	
+			<col name="update_time" type="DATE"  desc="更新时间"/>	
+			<col name="u_user_id" type="number(10)"  desc="更新人编号"/>	
+		</table>
+		<table name="car_area_plan_bind_info" desc="投放计划绑定车辆">
+			<col name="plan_id" type="varchar2(50)" isNull="false" desc="计划编号"/>
+			<col name="car_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+		</table>
+		<table name="residence_area_business_day" desc="驻点区域车辆运营信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="area_id" type="number(10)" desc="区域编号"/>	
+			<col name="plan_id" type="number(10)" desc="计划id"/>	
+			<col name="com_id" type="number(10)" desc="企业id"/>			
+			<col name="com_name" type="varchar2(50)"  desc="企业名"/>
+			<col name="server_id" type="number(10)" desc="运营商id"/>			
+			<col name="server_name" type="varchar2(50)"  desc="运营商名"/>
+			<col name="statistics_date" type="DATE"  desc="统计日期"/>
+			<col name="total_dura_n" type="number(10)" desc="驻点区域内总时长"/>
+			<col name="total_dura_w" type="number(10)" desc="驻点区域外总时长"/>
+			<col name="run_dura_n" type="number(10)" desc="驻点区域内营运时长"/>
+			<col name="run_dura_w" type="number(10)" desc="驻点区域外营运时长"/>
+			<col name="total_mile_n" type="number(10,2)" desc="驻点区域内总里程"/>	
+			<col name="total_mile_w" type="number(10,2)" desc="驻点区域外总里程"/>	
+			<col name="nul_mile_n" type="number(10,2)" desc="驻点区域内空驶里程  "/>	
+			<col name="nul_mile_w" type="number(10,2)" desc="驻点区域外空驶里程  "/>	
+			<col name="run_num_n" type="number(5)" desc="驻点区域内营运次数"/>	
+			<col name="run_num_w" type="number(5)" desc="驻点区域外营运次数"/>
+			<col name="run_money_n" type="number(10,2)" desc="驻点区域内营运金额"/>	
+			<col name="run_money_w" type="number(10,2)" desc="驻点区域外营运金额"/>	
+			<col name="total_num_j" type="number(5)" desc="车辆进入区域总次数"/>
+			<col name="total_num_l" type="number(5)" desc="车辆离开区域总次数"/>
+			<col name="kong_num_j" type="number(5)" desc="空车进入区域总次数"/>
+			<col name="kong_num_l" type="number(5)" desc="空车离开区域总次数"/>
+			<col name="zhong_num_j" type="number(5)" desc="重车进入区域总次数"/>
+			<col name="zhong_num_l" type="number(5)" desc="重车离开区域总次数"/>
+			<col name="record_time" type="date" desc="记录时间"/>
+		</table>
+		<table name="residence_area_car_alarm_day" desc="驻点区域车辆违规报警">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="area_id" type="number(10)" desc="驻点区域编号"/>	
+			<col name="plan_id" type="number(10)" desc="计划id"/>	
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="statistics_date" type="DATE"  desc="统计日期"/>
+			<col name="mile" type="number(10,2)"  desc="行驶里程"/>
+			<col name="mile_standard" type="number(10,2)" desc="行驶里程标准"/>
+			<col name="dura" type="number(10)"  desc="停留时长"/>	
+			<col name="dura_standard" type="number(10)"  desc="停留时长标准"/>	
+			<col name="type" type="number(10)"  desc="类型 行驶里程,0;停留时长,1;"/>	
+		</table>
+		<table name="cost_manage" desc="费用管理">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="name" type="varchar2(50)" desc="费用名称"/>
+			<col name="val" type="number(10,2)" desc="费用值"/>
+			<col name="valid_start_time" type="date"  desc="有效开始日期"/>
+			<col name="valid_end_time" type="date"  desc="有效结束日期"/>
+			<col name="remark" type="varchar2(100)" desc="费用备注"/>	
+			<col name="type" type="varchar2(50)" desc="费用类型 (燃油附加费,燃油附加费;)"/>
+			<col name="record_time" type="DATE"  desc="记录时间"/>	
+			<col name="record_user" type="number(10)"  desc="记录人编号"/>	
+			<col name="update_time" type="DATE"  desc="更新时间"/>	
+			<col name="update_user" type="number(10)"  desc="更新人编号"/>	
+		</table>
+		<table name="page_feed_back_info" desc="页面反馈信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="page" type="varchar2(50)" isNull="false" desc="页面ID"/>
+			<col name="page_name" type="varchar2(50)" isNull="false" desc="页面名称"/>
+			<col name="content" type="varchar2(1024)" isNull="false" desc="内容"/>
+			<col name="record_time" type="DATE"  desc="记录时间"/>	
+			<col name="user_id" type="number(10)"  desc="记录人编号"/>	
+			<col name="feed_back_name" type="varchar2(10)" desc="反馈人"/>	
+			<col name="phone" type="varchar2(11)" desc="反馈人电话"/>
+			<col name="mail" type="varchar2(2048)" desc="邮箱"/>
+			<col name="is_send" type="number(2)" desc="是否发送邮件"/>
+			<col name="status" type="number(2)" desc="状态(0,录入;1,已处理;)"/>
+		</table>
+		<table name="page_help_info" desc="页面帮助信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="page" type="varchar2(50)" isNull="false" desc="页面ID"/>
+			<col name="page_name" type="varchar2(50)" isNull="false" desc="页面名称"/>
+			<col name="content" type="blob" isNull="false" desc="内容"/>
+			<col name="record_time" type="date"  desc="记录时间"/>	
+			<col name="user_id" type="number(10)"  desc="记录人编号"/>	
+		</table>
+		<table name="webservice_interface_manage" desc="webservice接口管理">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="user_name" type="varchar2(50)" desc="用户名"/>
+			<col name="user_password" type="varchar2(50)" desc="密码"/>
+			<col name="user_summary" type="varchar2(200)"  desc="简介"/>
+			<col name="start_time" type="date"  desc="有效开始日期"/>
+			<col name="end_time" type="varchar2(100)" desc="有效结束日期"/>	
+			<col name="interface_name" type="varchar2(2048)" desc="接口名(格式:name1,name2)"/>
+			<col name="create_user" type="number(10)"  desc="记录人编号"/>	
+			<col name="create_time" type="date"  desc="记录时间"/>	
+			<col name="update_user" type="number(10)"  desc="更新人编号"/>	
+			<col name="update_time" type="date"  desc="更新时间"/>	
+		</table>
+	</group>
+	<group desc="打车难区域">
+		<table name="call_car_trouble_area_plan" desc="打车难区域考核计划">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plan_name" type="varchar2(200)" desc="计划名称"/>
+			<col name="start_time" type="varchar2(10)"  desc="考核开始时间"/>
+			<col name="end_time" type="varchar2(10)"  desc="考核结束时间"/>
+			<col name="start_date" type="date"  desc="考核开始日期"/>
+			<col name="end_date" type="date"  desc="考核结束日期"/>
+			<col name="area_id" type="number(10)"  desc="打车难区域区域编号"/>
+			<col name="status" type="number(2)"  desc="状态 录入,0;考核中,1;已完成,2"/>
+			<col name="user_id" type="number(10)"  desc="记录人"/>
+			<col name="record_time" type="date"  desc="记录时间"/>
+			<col name="u_user_id" type="number(10)"  desc="更新人"/>
+			<col name="update_time" type="DATE" desc="最后更新时间"/>
+		</table>
+		<table name="call_car_trouble_area_pass" desc="打车难区域考核通过信息记录表">
+			<col name="ID" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plan_id" type="number(10)" isNull="false" desc="打车难区域考核计划编号"/>
+			<col name="area_id" type="number(10)"  desc="打车难区域编号"/>
+			<col name="assess_date" type="date"  desc="考核日期"/>
+			<col name="service_no" type="varchar2(12)"  desc="驾驶员"/>
+			<col name="dest_no" type="varchar2(16)"  desc="车牌号"/>
+			<col name="com_id" type="number(10)"  desc="企业id"/>
+			<col name="server_id" type="number(2)"  desc="运营商id"/>
+			<col name="nul_in_time" type="date"  desc="空车进入时间"/>
+			<col name="zhong_time_n" type="date"  desc="区域内出现重车时间"/>
+			<col name="leave_time" type="date"  desc="出区域时间"/>
+			<col name="stop_dura" type="number(10)" desc="区域停留时长（毫秒）"/>
+			<col name="down_time" type="date"  desc="乘客下车时间"/>
+			<col name="zhong_run_time" type="number(10)" desc="重车营运时长（毫秒）"/>
+			<col name="zhong_run_mile" type="number(10,2)" desc="重车经历里程"/>
+			<col name="record_time" type="date"  desc=""/>
+			<index name="CALL_CAR_TROUBLE_AREA_PASS1" on="service_no"/>
+			<index name="CALL_CAR_TROUBLE_AREA_PASS2" on="dest_no"/>
+		</table>
+	</group>
+	<group desc="车辆GPS终端数据质量">
+		<table name="gps_mdt_data_quality" desc="车辆GPS终端数据质量跟踪表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="com_id" type="number(10)"  desc="企业编号"/>
+			<col name="server_id" type="number(10)"  desc="运营商编号"/>
+			<col name="assess_date" type="date"  desc="统计时间"/>
+			<!-- 不合格数据 -->
+			<col name="speed" type="number(10)"  default="0" desc="连续速度不合格"/>
+			<col name="points" type="number(10)"  default="0" desc="上传频度不合格"/>
+			<col name="point_valid" type="number(10)"  default="0" desc="有效点数不合格"/>
+			<col name="point_realtime" type="number(10)"  default="0" desc="数据实时性不合格"/>
+			<col name="business_status" type="number(10)"  default="0" desc="营运状态不合格"/>
+			<col name="business_num" type="number(10)"  default="0" desc="营运笔数不合格"/>
+			<col name="business_time" type="number(10)"  default="0" desc="营运时间不合格"/>
+			<col name="business_wait_time" type="number(10)"  default="0" desc="营运等候时长不合格"/>
+			<col name="fly_num" type="number(10)"  default="0" desc="飞点次数不合格"/>
+			<!-- gps异常数据 -->
+			<col name="gps_lo_la" type="number(10)"  default="0" desc="经纬度异常"/>
+			<col name="gps_speed" type="number(10)"  default="0" desc="速度异常"/>
+			<col name="gps_time" type="number(10)"  default="0" desc="时间异常"/>
+			<col name="gps_status" type="number(10)"  default="0" desc="状态异常"/>
+			<!-- 营运异常数据 -->
+			<col name="single_business_money" type="number(10)"  default="0" desc="营运金额异常"/>
+			<col name="single_business_time" type="number(10)"  default="0" desc="营运时长异常"/>
+			<col name="single_business_price" type="number(10)"  default="0" desc="营运单价异常"/>
+			<col name="single_business_mile" type="number(10)"  default="0" desc="营运里程异常"/>
+			<col name="single_business_empty_mile" type="number(10)"  default="0" desc="营运空驶里程异常"/>
+			<col name="single_business_wait_time" type="number(10)"  default="0" desc="营运等候时长异常"/>
+			
+			<col name="qualified" type="number(2)"  default="0" desc="整体是否合格 合格,0;不合格,1;"/>
+			<col name="qualified_g" type="number(2)"  default="0" desc="gps异常是否合格 合格,0;不合格,1;"/>
+			<col name="qualified_s" type="number(2)"  default="0" desc="营运异常是否合格 合格,0;不合格,1;"/>
+			<col name="qualified_n" type="number(2)"  default="0" desc="不合格数据是否合格 合格,0;不合格,1;"/>
+			
+			<col name="noqualified_day" type="number(10)"  default="0" desc="不合格连续天数"/>
+			<col name="gps_day" type="number(10)"  default="0" desc="gps异常连续天数"/>
+			<col name="business_day" type="number(10)"  default="0" desc="营运数据异常连续天数"/>
+			<col name="total_day" type="number(10)"  default="0" desc="总体异常连续天数"/>
+		</table>
+		<table name="gps_mdt_data_repair" desc="车辆GPS终端数据质量修复信息">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="com_id" type="number(10)"  desc="企业编号"/>
+			<col name="server_id" type="number(10)"  desc="运营商编号"/>
+			<col name="assess_date" type="date"  desc="统计时间"/>
+			<col name="repair" type="number(2)"  default="0" desc="总体修复的 1,已修复;0,未知"/>
+			<col name="newadd" type="number(2)"  default="0" desc="总体新增的 0,不是新增;1,新增"/>
+			<col name="isrepair" type="number(2)"  default="0" desc="总体是否需要修复 0,否;1,是"/>
+			<col name="newstatus" type="number(2)"  default="0" desc="当前状态 0,正常;1,异常"/>
+			
+			<col name="repair_g" type="number(2)"  default="0" desc="gps异常修复的 1,已修复;0,未知"/>
+			<col name="newadd_g" type="number(2)"  default="0" desc="gps异常新增的 0,不是新增;1,新增"/>
+			<col name="isrepair_g" type="number(2)"  default="0" desc="gps异常是否需要修复 0,否;1,是"/>
+			<col name="newstatus_g" type="number(2)"  default="0" desc="当前gps异常状态 0,正常;1,异常"/>
+			
+			<col name="repair_s" type="number(2)"  default="0" desc="营运异常修复的 1,已修复;0,未知"/>
+			<col name="newadd_s" type="number(2)"  default="0" desc="营运异常新增的 0,不是新增;1,新增"/>
+			<col name="isrepair_s" type="number(2)"  default="0" desc="营运异常是否需要修复 0,否;1,是"/>
+			<col name="newstatus_s" type="number(2)"  default="0" desc="当前营运异常状态 0,正常;1,异常"/>
+			
+			<col name="repair_n" type="number(2)"  default="0" desc="不合格数据修复的 1,已修复;0,未知"/>
+			<col name="newadd_n" type="number(2)"  default="0" desc="不合格数据新增的 0,不是新增;1,新增"/>
+			<col name="isrepair_n" type="number(2)"  default="0" desc="不合格数据是否需要修复 0,否;1,是"/>
+			<col name="newstatus_n" type="number(2)"  default="0" desc="当前不合格数据状态 0,正常;1,异常"/>
+		</table>
+	</group>
+	<group desc="定时发送报文">
+		<table name="send_message_timer_info" desc="定时发送报文表">
+			<col name="id" type="number(10)" isnull="false" desc="主键" isprimary="true"/>
+			<col name="send_time" type="date" isnull="true" desc="下发时间"/>
+			<col name="last_send_time" type="date" isnull="true" desc="上次发送时间"/>
+			<col name="plan_send_times" type="number(10)" isnull="true" desc="计划发送次数"/>
+			<col name="yet_send_times" type="number(10)" isnull="true" default="0" desc="已发送次数"/>
+			<col name="interval_time" type="number(10)" isnull="true" desc="间隔时间（单位：分钟）"/>
+			<col name="status" type="number(10)" isnull="true" default="0" desc="状态（0待发送1已发送2已完成）"/>
+			<col name="message" type="varchar2(256)" isnull="true" desc="报文内容（最大长度50个汉字）"/>
+			<col name="create_time" type="date" isnull="true" desc="创建时间"/>
+			<col name="creator" type="number(10)" isnull="true" desc="创建人"/>
+			<col name="dest_nos" type="blob" isnull="true" desc="车牌号 以,分割"/>
+		</table>
+	</group>
+	<group desc="驾驶员服务质量考核">
+		<table name="traffic_transgress_info" desc="交通违法信息表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="transgress_time" type="date" desc="违法时间"/>
+			<col name="transgress_action" type="varchar2(20)" desc="违法行为"/>
+			<col name="transgress_address" type="varchar2(100)" desc="违法地址"/>
+			<col name="transgress_content" type="varchar2(500)" desc="违法内容"/>
+			<col name="service_no" type="varchar2(12)" desc="准许证号"/>
+			<col name="com_id" type="number(10)" desc="企业id"/>
+			<col name="driver_name" type="varchar2(50)" desc="驾驶员姓名"/>
+			<col name="car_type" type="varchar2(50)" desc="车辆类型"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+			<col name="status" type="number(10)" isNull="false" desc="数据状态 未结案,0;已结案,1;结案导出,2;消除数据,3;"/>
+			<col name="end_export_time" type="date" desc="结案导出时间"/>
+			<col name="com_status" type="number(10)" isNull="false" desc="企业处理状态 未处理,0;申诉中,1;已处理,2;"/>
+			<col name="com_deal_time" type="date" desc="企业最后处理时间"/>
+			<col name="com_deal_user" type="number(10)" desc="企业最后处理人"/>
+			<col name="isedit" type="number(10)" desc="0,可编辑;1,不可编辑;"/>
+			<col name="url" type="varchar2(200)" desc="上传文件的存取路径"/>
+			<col name="local_url" type="varchar2(200)" desc="参照的证明资料文件的路径"/>
+			<col name="abnormal"  type="number(2)" desc="导入的信息是否合格标记   0:为合格    1:为车牌信息没找到"/>
+			<index name="TRAFFIC_TRANSGRESS_INFO_DEST_NO" on="dest_no"/>
+		</table>
+		<table name="bussiness_transgress_info" desc="营运违章信息表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="verify_person" type="varchar2(200)" desc="主管部门核实人"/>
+			<col name="transgress_time" type="date" desc="违法时间"/>
+			<col name="transgress_action" type="varchar2(20)" desc="违法行为"/>
+			<col name="transgress_address" type="varchar2(100)" desc="违法地址"/>
+			<col name="transgress_content" type="varchar2(500)" desc="违法内容"/>
+			<col name="decided_to_book" type="varchar2(200)" desc="决定书号"/>
+			<col name="notify_to_book" type="varchar2(200)" desc="通知书号"/>
+			<col name="service_no" type="varchar2(12)" isNull="false" desc="准许证号"/>
+			<col name="com_id" type="number(10)" desc="企业id"/>
+			<col name="driver_name" type="varchar2(50)" desc="驾驶员姓名"/>
+			<col name="car_type" type="varchar2(50)" desc="车辆类型"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+			<col name="status" type="number(10)" isNull="false" desc="数据状态 未结案,0;已结案,1;结案导出,2;消除数据,3;"/>
+			<col name="end_export_time" type="date" desc="结案导出时间"/>
+			<col name="com_status" type="number(10)" isNull="false" desc="企业处理状态 未处理,0;申诉中,1;已处理,2;"/>
+			<col name="com_deal_time" type="date" desc="企业最后处理时间"/>
+			<col name="com_deal_user" type="number(10)" desc="企业最后处理人"/>
+			<col name="isedit" type="number(10)" isNull="false" desc="0,可编辑;1,不可编辑;"/>
+			<col name="is_com" type="number(2)" isNull="false" desc="是否为企业 个人,0;企业/法定代表人,1;"/>
+			<col name="url" type="varchar2(200)" desc="上传文件的存取路径"/>
+			<col name="local_url" type="varchar2(200)" desc="参照的证明资料文件的路径"/>
+			<col name="abnormal"  type="number(2)" desc="导入的信息是否合格标记   0:为合格    1:为车牌信息没找到"/>
+			<index name="BUSSINESS_TRANSGRESS_INFO_DEST_NO" on="dest_no"/>
+		</table>
+		<table name="service_complain_info" desc="服务投诉信息表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="car_type" type="varchar2(50)" desc="车辆类型"/>
+			<col name="service_no" type="varchar2(12)" isNull="false" desc="准许证号"/>
+			<col name="driver_name" type="varchar2(50)" desc="驾驶员姓名"/>
+			<col name="com_id" type="number(10)" desc="企业id"/>
+			<col name="create_user" type="number(10)" desc="创建人"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+			<col name="type" type="varchar2(50)" desc="信访性质"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+			<col name="status" type="number(10)" isNull="false" desc="数据状态 未结案,0;已结案,1;结案导出,2;不纳入考核,3;"/>
+			<col name="end_export_time" type="date" desc="结案导出时间"/>
+			<col name="com_status" type="number(10)" isNull="false" desc="企业处理状态 未处理,0;申诉中,1;已处理,2;"/>
+			<col name="com_deal_time" type="date" desc="企业最后处理时间"/>
+			<col name="com_deal_user" type="number(10)" desc="企业最后处理人"/>
+			<col name="url" type="varchar2(200)" desc="上传文件的存取路径"/>
+			<col name="local_url" type="varchar2(200)" desc="参照的证明资料文件的路径"/>
+			<col name="abnormal"  type="number(2)" desc="导入的信息是否合格标记   0:为合格    1:为车牌信息没找到"/>
+			<index name="SERVICE_COMPLAIN_INFO_DEST_NO" on="dest_no"/>
+		</table>
+		<table name="traffic_accident_info" desc="交通事故信息表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="dest_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="service_no" type="varchar2(12)" isNull="false" desc="准许证号"/>
+			<col name="driver_name" type="varchar2(50)" desc="驾驶员姓名"/>
+			<col name="car_type" type="varchar2(50)" desc="车辆类型"/>
+			<col name="com_id" type="number(10)" desc="企业id"/>
+			<col name="accident_time" type="date" desc="事故时间"/>
+			<col name="die_num" type="number(10)" desc="死亡人数"/>
+			<col name="supervise" type="varchar2(200)" desc="局监管"/>
+			<col name="duty" type="varchar2(20)" desc="责任认定"/>
+			<col name="area" type="varchar2(20)" desc="区域"/>
+			<col name="is_assess" type="number(10)" isNull="false" desc="不纳入考核,0;纳入考核,1;"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+			<col name="injured_num" type="number(10)" desc="事故受伤人数"/>
+			<col name="badly_injured_num" type="number(10)" desc="重伤人数"/>
+		</table>
+		<table name="traffic_transgress_appeal" desc="交通违法信息申诉表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="t_id" type="number(15)" isNull="false" desc="交通违法编号"/>
+			<col name="appeal_time" type="date" desc="申诉时间"/>
+			<col name="appeal_user" type="number(10)" desc="申诉人"/>
+			<col name="deal_user" type="number(10)" desc="客运中心处理人"/>
+			<col name="deal_time" type="date" desc="客运中心处理时间"/>
+			<col name="type" type="number(10)" desc="申诉类型 无驾驶员,0;其他,1;"/>
+			<col name="content" type="varchar2(200)" desc="申诉内容"/>
+			<col name="status" type="number(10)" isNull="false" desc="申诉状态 申诉中,0;申诉成功,1;申诉失败,2;"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+		</table>
+		<table name="service_complain_appeal" desc="服务投诉信息申诉表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="t_id" type="number(15)" isNull="false" desc="服务投诉编号"/>
+			<col name="appeal_time" type="date" desc="申诉时间"/>
+			<col name="appeal_user" type="number(10)" desc="申诉人"/>
+			<col name="deal_user" type="number(10)" desc="客运中心处理人"/>
+			<col name="deal_time" type="date" desc="客运中心处理时间"/>
+			<col name="content" type="varchar2(200)" desc="申诉内容"/>
+			<col name="status" type="number(10)" isNull="false" desc="申诉状态 申诉中,0;申诉成功,1;申诉失败,2;"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+		</table>
+		<table name="bussiness_transgress_appeal" desc="营运违章信息申诉表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="t_id" type="number(15)" isNull="false" desc="营运违章编号"/>
+			<col name="appeal_time" type="date" desc="申诉时间"/>
+			<col name="appeal_user" type="number(10)" desc="申诉人"/>
+			<col name="deal_user" type="number(10)" desc="客运中心处理人"/>
+			<col name="deal_time" type="date" desc="客运中心处理时间"/>
+			<col name="type" type="number(10)" isNull="false" desc="申诉类型 无驾驶员,0;其他,1;"/>
+			<col name="content" type="varchar2(200)" desc="申诉内容"/>
+			<col name="status" type="number(10)" isNull="false" desc="申诉状态 申诉中,0;申诉成功,1;申诉失败,2;"/>
+			<col name="prove_id" type="number(10)" desc="签名资料"/>
+		</table>
+		<table name="service_quality_prove" desc="证明资料信息表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="name" type="varchar2(200)" isNull="false" desc="资料名"/>
+			<col name="time" type="date" isNull="false" desc=""/>
+			<col name="com_id" type="number(10)" desc="上传企业"/>
+			<col name="type" type="number(10)" isNull="false" desc="资料类型 交通违法,0;营运违章,1;交通事故,2;服务投诉,3;交通违法申诉,4;交通事故申诉,5;营运违章申诉,6;服务投诉申诉,7;"/>
+			<col name="url" type="varchar2(200)" isNull="false" desc="资料存储路径"/>
+			<col name="create_user" type="number(10)" desc="创建人"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+			<index name="SERVICE_QUALITY_PROVE_NAME" on="name"/>
+		</table>
+		<table name="driver_service_grade_bylaws" desc="驾驶员服务质量考核明细表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="grade_detail" type="varchar2(2048)" isNull="false" desc="评分标准"/>
+			<col name="d_id" type="varchar2(20)" isNull="false" desc="编号"/>
+			<col name="grade" type="number(10,2)" isNull="false" desc="分数"/>
+			<col name="create_user" type="number(10)" desc="创建人"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+		</table>
+		<table name="driver_service_grade_info" desc="驾驶员服务加分明细表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="service_no" type="varchar2(50)" isNull="false" desc="加分驾驶员"/>
+			<col name="grade_type" type="varchar2(20)" isNull="false" desc="加分类型 801,801;802,802;901,901;902,902;903,903;1001,1001;1002,1002;1101,1101;1102,1102;1103,1103;1201,1201;"/>
+			<col name="prove_name" type="varchar2(200)" isNull="false" desc="资料名称"/>
+			<col name="create_user" type="number(10)" desc="创建人"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+			<col name="status" type="number(10)" isNull="false" desc="状态 录入,0;审核中,1;通过,2;未通过,3;"/>
+			<col name="deal_user" type="number(10)" desc="处理人"/>
+			<col name="deal_time" type="date" desc="处理时间"/>
+			<col name="remark" type="varchar2(200)" desc="备注"/>
+		</table>
+		<table name="driver_service_grade_minus" desc="驾驶员服务质量考核扣分明细表">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="grade_detail" type="varchar2(2048)" isNull="false" desc="评分标准"/>
+			<col name="d_id" type="varchar2(20)" isNull="false" desc="编号"/>
+			<col name="grade" type="number(10,2)" isNull="false" desc="分数"/>
+			<col name="create_user" type="number(10)" desc="创建人"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+		</table>
+		<table name="driver_service_grade_imp" desc="驾驶员服务扣分明细表（每一条扣分信息）">
+			<col name="id" type="number(15)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="service_no" type="varchar2(50)" isNull="false" desc="扣分驾驶员"/>
+			<col name="grade_type" type="varchar2(20)" isNull="false" desc="扣分分类型 "/>
+			<col name="prove_name" type="varchar2(200)" isNull="false" desc="资料名称"/>
+			<col name="create_user" type="number(10)" desc="创建人"/>
+			<col name="create_time" type="date" desc="创建时间"/>
+			<col name="status" type="number(10)" isNull="false" desc="状态 录入,0;审核中,1;通过,2;未通过,3;"/>
+			<col name="deal_user" type="number(10)" desc="处理人"/>
+			<col name="deal_time" type="date" desc="处理时间"/>
+			<col name="remark" type="varchar2(200)" desc="备注"/>
+		</table>
+		<table name="driver_service_grade" desc="驾驶员服务质量得分表">
+		    <col name="id" type="number(10)"  isNull="false" isPrimary="true" desc="唯一性标识"/>
+		    <col name="service_no" type="varchar2(50)"  isNull="false" desc="驾驶员许可证号"/>
+		    <col name="grade_plus" type="number(10,2)"  isNull="false" desc="驾驶员获得的加分"/>
+            <col name="grade_minus" type="number(10,2)"  isNull="false" desc="驾驶员获得的扣分"/>
+            <col name="grade_default" type="number(10,2)"  isNull="false" default="20" desc="驾驶员基准分"/>
+            <col name="record_date" type="date"  isNull="false" desc="得分生成日期"/>
+		</table>
+		<table name="ANA_GUZHANG_DAY_STAT" desc="故障率日统计">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="DATE"  desc="统计日期"/>
+			<col name="gz_num" type="number(10)" desc="故障数"/>	
+			<col name="car_num" type="number(10)" desc="车辆数"/>
+			<col name="parcent" type="number(10,2)"  desc="故障率"/>	
+		</table>
+	</group>
+	<group desc="合肥测试案例">
+		<table name="taxi_company_hf" desc="企业信息表（合肥）">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="com_name" type="varchar2(50)" desc="企业名称"/>
+			<col name="address" type="varchar2(200)"  desc="地址"/>
+			<col name="legal_representative" type="varchar2(50)"  desc="法定代表人"/>
+			<col name="qualification_id" type="varchar2(20)"  desc="考核开始日期"/>
+			<col name="run_status" type="number(10)"  desc="营运状态"/>
+			<col name="linkman" type="varchar2(20)"  desc="联系人"/>
+			<col name="phone" type="varchar2(11)"  desc="联系电话"/>
+			<col name="create_user" type="number(10)"  desc="记录人"/>
+			<col name="create_time" type="date"  desc="记录时间"/>
+			<col name="update_user" type="number(10)"  desc="更新人"/>
+			<col name="update_time" type="DATE" desc="最后更新时间"/>
+		</table>
+		<table name="transport_price_manage_hf" desc="运价信息表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="transport_area" type="varchar2(50)" isNull="false" desc="运输区域"/>
+			<col name="start_time" type="date"  desc="实行开始日期"/>
+			<col name="end_time" type="date"  desc="实行结束日期"/>
+			<col name="dt_initiate_rate" type="number(10,2)"  desc="昼间起步价"/>
+			<col name="dt_initiate_mile" type="number(10,2)"  desc="昼间起步里程"/>
+			<col name="dt_mile_rate" type="number(10,2)"  desc="昼间里程价"/>
+			<col name="dt_mile_rate_back" type="number(10,2)"  desc="昼间返程里程价"/>
+			<col name="nt_initiate_rate" type="number(10,2)"  desc="夜间起步价"/>
+			<col name="nt_initiate_mile" type="number(10,2)"  desc="夜间起步里程"/>
+			<col name="nt_mile_rate" type="number(10,2)"  desc="夜间里程价"/>
+			<col name="nt_mile_rate_back" type="number(10,2)" desc="夜间返程里程价"/>
+			<col name="dt_start_time" type="varchar2(10)"  desc="昼间开始时间"/>
+			<col name="dt_end_time" type="varchar2(10)" desc="昼间结束时间"/>
+			<col name="create_user" type="number(10)"  desc="记录人"/>
+			<col name="create_time" type="date"  desc="记录时间"/>
+			<col name="update_user" type="number(10)"  desc="更新人"/>
+			<col name="update_time" type="date" desc="最后更新时间"/>
+		</table>
+		<table name="peak_para_manage" desc="高峰时间段管理">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="peak_type" type="varchar2(20)" isNull="false" desc="高峰时段 早、中、晚"/>
+			<col name="start_time" type="date"  desc="高峰开始日时间"/>
+			<col name="end_time" type="date"  desc="高峰结束时间"/>
+			<col name="update_user" type="number(10)"  desc="更新人"/>
+			<col name="update_time" type="date" desc="最后更新时间"/>
+		</table>
+		<table name="ana_single_car_day_peak_stat" desc="高峰时段车辆营运分析表（按天）">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="plate_no" type="varchar2(16)" isNull="false" desc="车牌号"/>
+			<col name="company_id" type="number(10)"  desc="企业编号"/>
+			<col name="company_name" type="varchar2(50)"  desc="企业名称"/>
+			<col name="peak_type" type="varchar2(20)"  desc="高峰时段"/>
+			<col name="work_times" type="number(10)"  desc="营运次数"/>
+			<col name="total_distance" type="number(10,2)"  desc="行驶里程"/>
+			<col name="work_distance" type="number(10,2)"  desc="营运里程"/>
+			<col name="free_distance" type="number(10,2)"  desc="空驶里程"/>
+			<col name="waiting_hour" type="number(10)"  desc="等候小时"/>
+			<col name="waiting_minute" type="number(10)"  desc="等候分钟"/>
+			<col name="waiting_second" type="number(10)" desc="等候秒"/>
+			<col name="total_income" type="number(10,2)"  desc="总收入"/>
+			<col name="work_income" type="number(10,2)" desc="计价收入"/>
+			<col name="fuel_income" type="number(10,2)"  desc="燃油附加收入"/>
+			<col name="work_date" type="date"  desc="营运时间"/>
+			<col name="analysis_time" type="date" desc="分析时间"/>
+		</table>
+	</group>
+	
+	<group desc="轨迹分析表">
+		<table name="ANA_CAR_TRACKSTATUS_STAT" desc="轨迹点状态统计表">
+			<col name="ID" type="NUMBER(8)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="stat_time" type="DATE" desc="统计日期"/>
+			<col name="car_no" type="VARCHAR2(64)"  desc="车牌号"/>
+			<col name="mdt_id" type="NUMBER(8)"  desc="终端号"/>
+			<col name="point_total_num" type="NUMBER(8)"  desc="所有轨迹点数"/>
+			<col name="point_free_num" type="NUMBER(8)"  desc="空车轨迹点数"/>
+			<col name="point_load_num" type="NUMBER(8)"  desc="重车轨迹点数"/>
+			<col name="point_call_num" type="NUMBER(8)"  desc="电招轨迹点数"/>
+			<col name="point_off_num" type="NUMBER(8)"  desc="离线轨迹点数"/>
+			<col name="max_status" type="VARCHAR2(20)"  desc="轨迹点数最多的状态"/>
+			<col name="max_status_pec" type="VARCHAR2(32)"  desc="轨迹点数最多的百分比"/>
+			<col name="createtime" type="DATE"  default="sysdate" desc="创建时间"/>
+			<col name="companyid" type=" NUMBER(8)"  desc="公司id"/>
+			<col name="companyname" type="VARCHAR2(256)"  desc="公司名称"/>
+			<index name="IN_ANA_CAR_TRACKSTATUS_STAT1" on="stat_time"/>
+			<index name="IN_ANA_CAR_TRACKSTATUS_STAT2" on="companyid"/>
+		</table>
+	</group>
+	
+	<group desc="公告管理表">
+		<table name="ANNOUNCEMENT_INFO" desc="公告管理表">
+			<col name="ID" type="NUMBER(10)" />
+			<col name="title" type="VARCHAR2(256)" desc="标题"/>
+			<col name="content" type="VARCHAR2(4000)"  desc="内容"/>
+			<col name="publish_time" type="DATE"  desc="发布日期"/>
+			<col name="create_time" type="DATE"  desc="创建日期"/>
+			<col name="creator" type="NUMBER(10)"  desc="创建人"/>
+		</table>
+	</group>
+	
+	<group desc="计价器黑名单表">
+		<table name="TAXIMETER_BLACKLIST" desc="计价器黑名单表">
+			<col name="ID" type="NUMBER(10)" isNull="false" isPrimay="true"/>
+			<col name="TYPE" type="NUMBER(1)"  desc="类型1:车租车；2:驾驶员"/>
+			<col name="KEYWORDS" type="VARCHAR2(256)"  desc="type为1时，记录车牌号；2时候，记录驾驶员工号"/>
+			<col name="VALID_STARTDATE" type="DATE"  desc="黑名单开始日期"/>
+			<col name="VALID_ENDDATE" type="DATE"  desc="黑名单结束日期"/>
+			<col name="LOCK_TYPE" type="NUMBER(1)"  desc="锁定类型，1：合乘锁定；2：全功能锁定"/>
+			<col name="REMARK" type="VARCHAR2(1024)"  desc="备注"/>
+			<col name="OPERATOR" type="NUMBER(10)"  desc="操作人"/>
+			<col name="CREATETIME" type="date"  default="sysdate" desc="创建时间" />
+			<index name="TAXIMETER_BLACKLIST_IND1" on="KEYWORDS"/>
+		</table>
+	</group>
+	
+	<group desc="合肥项目">
+		<table name="LOSTANDFOUND" desc="失物招领表">
+			<col name="ID" type="NUMBER(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="TITLE" type="VARCHAR2(70)" desc="标题"/>
+			<col name="DETAIL" type="VARCHAR2(310)"  desc="详情"/>
+			<col name="LOSTDATE" type="DATE"  desc="丢失时间"/>
+			<col name="GETONADDR" type="VARCHAR2(110)"  desc="上车地点"/>
+			<col name="GETOFFADDR" type="VARCHAR2(110)"  desc="下车地点"/>
+			<col name="DRIVER" type="VARCHAR2(10)"  desc="驾驶员"/>
+			<col name="CARID" type="VARCHAR2(15)"  desc="车牌号"/>
+			<col name="COMPANY" type="VARCHAR2(50)"  desc="公司"/>
+			<col name="CONNPER" type="VARCHAR2(10)"  desc="联系人"/>
+			<col name="TELEPHONE" type="VARCHAR2(20)"  desc="固话"/>
+			<col name="CELLPHONE" type="VARCHAR2(20)"   desc="手机"/>
+			<col name="PICTURE" type="BLOB"  desc="图片"/>
+			<col name="OPERATEDATE" type="DATE"  desc="发布时间"/>
+			<col name="STATE" type="VARCHAR2(10)"  desc="发布时间"/>
+			<col name="REMARK" type="VARCHAR2(110)"  desc="处理备注"/>
+			<col name="FLAG" type="VARCHAR2(50)"  desc="flag"/>
+		</table>
+	</group>
+	
+	<group desc="区域监控表表">
+		<table name="ANA_CAPACITY_AREA_MONITOR" desc="超区区域监控表">
+			<col name="id" type="NUMBER(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="scheme_id" type="NUMBER(10)"  desc="方案id"/>
+			<col name="scheme_name" type="VARCHAR2(128)"  desc="方案名称"/>
+			<col name="order_num" type="NUMBER(6)"  desc="预定车辆数"/>
+			<col name="arrive_num" type="NUMBER(6)" desc="到达车辆数"/>
+			<col name="arrive_detail" type="CLOB"  desc="到达车辆详情"/>
+			<col name="load_num" type="number(6)" desc="载客车辆数"/>
+			<col name="l2f_num" type="NUMBER(10)" desc="重变空车次"/>
+			<col name="l2f_detail" type="CLOB"  desc="重变空详情"/>
+			<col name="f2l_num" type="NUMBER(6)" desc="空变重车次"/>
+			<col name="f2l_detail" type="CLOB"  desc="空变重详情"/>
+			<col name="stat_time" type="DATE" desc="统计日期"/>
+			<col name="load_detail" type="CLOB" desc="载客车辆详情"/>
+			<col name="loadarrnum" type="NUMBER(10)"  desc="送达车次"/>
+			<col name="loadarrdetail" type="CLOB"  desc="送达详情"/>
+			<col name="loadoffnum" type="NUMBER(10)" desc="运离车次"/>
+			<col name="loadoffdetail" type="CLOB" desc="运离详情"/>
+		</table>
+		<table name="ANA_CAPACITY_AREA_SCHEME" desc="运力监控区域方案表">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="scheme_name" type="VARCHAR2(128)" desc="方案名称"/>
+			<col name="area_id" type="number(10)" desc="区域id"/>
+			<col name="area_name" type="VARCHAR2(128)" desc="区域名称"/>
+			<col name="order_num" type="NUMBER(6)" desc="预定车辆数"/>
+			<col name="status" type="NUMBER(1)"  desc="状态：0，停用；1，启用"/>
+			<col name="creator" type="NUMBER(10)" desc="创建人"/>
+			<col name="create_time" type="DATE" desc="创建时间"/>
+			<col name="start_time" type="VARCHAR2(4)" desc="开始时段 00-23"/>
+			<col name="end_time" type="VARCHAR2(4)"  desc="结束时段 01-24"/>
+			<col name="remark" type="VARCHAR2(256)" desc="备注"/>
+			<col name="dest_nos" type="CLOB"  desc="预定车辆的车牌号"/>
+		</table>
+		
+		<table name="ANA_NOSTOP_AREA_MONITOR" desc="禁停区域监控表">
+			<col name="id" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="scheme_id" type="NUMBER(10)" desc="方案id"/>
+			<col name="scheme_name" type="VARCHAR2(128)" desc="方案名称"/>
+			<col name="com_id" type="NUMBER(10)" desc="公司id"/>			
+			<col name="com_name" type="VARCHAR2(128)"  desc="公司名称"/>
+			<col name="dest_no" type="VARCHAR2(64)" desc="车牌号"/>
+			<col name="start_time" type="date"  desc="开始时间" />
+			<col name="end_time" type="date"  desc="结束时间" />
+			<col name="maxspeed" type="NUMBER(4)" desc="最高速度"/>
+			<col name="alarm_level" type="NUMBER(1)" desc="警告级别"/>
+			<col name="stat_time" type="DATE" desc="统计时间"/>			
+			<col name="first_lo" type="NUMBER(12,8)"  desc="开始经度"/>
+			<col name="first_la" type="NUMBER(12,8)" desc="开始纬度"/>
+			<col name="last_lo" type="NUMBER(12,8)"  desc="结束经度" />
+			<col name="last_la" type="NUMBER(12,8)"  desc="结束纬度" />		
+		</table>
+		<table name="ANA_NOSTOP_AREA_SCHEME" desc="禁停区域方案">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="scheme_name" type="VARCHAR2(128)" desc="方案名称"/>
+			<col name="area_id" type="number(10)" desc="区域id"/>
+			<col name="area_name" type="VARCHAR2(128)" desc="区域名称"/>
+			<col name="minspeed" type="NUMBER(3)" desc="最低速度"/>
+			<col name="level1_time" type="NUMBER(6)"  desc="一级警告的停留时长，分钟；小于最低速度，持续时间大于该时长的算是违规停靠"/>
+			<col name="level2_time" type="NUMBER(6)" desc="二级警告的停留时长，分钟；时间大于一级警告的时长"/>
+			<col name="level3_time" type="NUMBER(6)" desc="三级警告的停留时长，分钟；时间大于二级警告的时长"/>
+			<col name="remark" type="VARCHAR2(512)" desc="备注"/>
+			<col name="creator" type="number(10)"  desc="创建人"/>
+			<col name="create_time" type="DATE" desc="创建时间"/>
+			<col name="status" type="NUMBER(1)"  desc="方案状态，1：启用；0：停用"/>
+			<col name="start_time" type="VARCHAR2(2)" desc="开始时段 00-23"/>
+			<col name="end_time" type="VARCHAR2(2)" desc="开始时段 01-24"/>
+		</table>
+	
+		<table name="ANA_OVERSPEED_AREA_MONITOR" desc="超速区域监控信息分析表">
+			<col name="id" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="scheme_id" type="NUMBER(10)" desc="方案id"/>
+			<col name="scheme_name" type="VARCHAR2(128)" desc="方案名称"/>
+			<col name="com_id" type="NUMBER(10)" desc="公司id"/>			
+			<col name="com_name" type="VARCHAR2(128)"  desc="公司名称"/>
+			<col name="dest_no" type="VARCHAR2(64)" desc="车牌号"/>
+			<col name="first_status" type="NUMBER(2)"  desc="开始点车辆状态：0，空车；1：重车" />
+			<col name="first_time" type="date"  desc="报警起点时间" />
+			<col name="first_lo" type="NUMBER(12,8)"  desc="开始经度"/>
+			<col name="first_la" type="NUMBER(12,8)" desc="开始纬度"/>
+			<col name="stat_time" type="DATE" desc="统计时间"/>
+			<col name="first_speed" type="NUMBER(4)" desc="起点速度"/>
+			<col name="last_status" type="NUMBER(2)" desc="'结束点车辆状态：0，空车；1：重车"/>
+			<col name="last_time" type="date"  desc="结束点时间" />
+			<col name="last_lo" type="NUMBER(12,8)"  desc="结束点经度" />
+			<col name="last_la" type="NUMBER(12,8)"  desc="结束点纬度" />	
+			<col name="last_speed" type="NUMBER(4)" desc="结束点速度"/>
+			<col name="max_speed" type="NUMBER(4)" desc="最大速度"/>
+			<col name="min_speed" type="NUMBER(4)" desc="最小速度"/>
+			<col name="avg_speed" type="NUMBER(4)" desc="平均速度"/>
+		</table>
+		<table name="ANA_OVERSPEED_SCHEME" desc="超速区域监控方案">
+			<col name="id" type="number(10)" isNull="false" isPrimay="true" desc="唯一性标识"/>
+			<col name="scheme_name" type="VARCHAR2(128)" desc="方案名称"/>
+			<col name="area_id" type="number(10)" desc="区域id"/>
+			<col name="area_name" type="VARCHAR2(128)" desc="区域名称"/>
+			<col name="start_time" type="VARCHAR2(4)" desc="开始时段 00-23"/>
+			<col name="end_time" type="VARCHAR2(4)" desc="开始时段 01-24"/>
+			<col name="overspeed" type=" NUMBER(6,2)" desc="报警速度"/>
+			<col name="car_status" type="NUMBER(3)"  desc="状态类型：0：空车；1：重车；9：全部类型"/>
+			<col name="scheme_dest_no" type="BLOB" desc="目标车牌列表"/>
+			<col name="create_time" type="DATE" desc="创建时间"/>
+			<col name="creator" type="number(10)"  desc="创建人"/>
+			<col name="status" type="NUMBER(1)"  desc="方案状态，1：启用；0：停用"/>			
+			<col name="remark" type="VARCHAR2(512)" desc="备注"/>
+		</table>
+		
+			
+		<table name="MDT_CONTROL_LOG" desc="终端操作记录表">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="MDT_ID" type="NUMBER(10)"  desc=""/>
+			<col name="DEST_NO" type="VARCHAR2(64)"  desc=""/>
+			<col name="MDT_OPTYPE" type="NUMBER(2)"  desc="所属机构"/>
+			<col name="OPERATOR" type="NUMBER(10)"  desc=""/>
+			<col name="CREATE_TIME" type="DATE"  default="sysdate" desc=""/>
+			<col name="REMARK" type="VARCHAR2(512)"  desc="创建者"/>
+		</table>
+		<table name="ana_business_day_stat_sz" desc="营运数据天统计表（筛选，深圳用）">
+			<col name="ID" type="NUMBER(10)" isNull="false" desc="唯一标示" isPrimary="true"/>
+			<col name="stat_time" type="date"  desc="统计日期"/>
+			<col name="dest_no" type="varchar2(20)"  desc="车牌号"/>
+			<col name="company_id" type="NUMBER(10)"  desc="公司id"/>
+			<col name="company_name" type="NUMBER(10)"  desc="公司名称"/>
+			<col name="type_id" type="number(10)" desc="车辆类型"/>
+			<col name="business_mile" type="number(10,2)"  desc="营运里程"/>
+			<col name="free_mile" type="number(10,2)"  desc="空驶里程"/>
+			<col name="mile" type="number(10)"  desc="总里程"/>
+			<col name="waiting_hour" type="number(10)"  desc="空车等待小时"/>
+			<col name="waiting_minute" type="number(10)"  desc="空车等待分钟"/>
+			<col name="waiting_second" type="number(10)"  desc="空车等待秒数"/>
+			<col name="business_money" type="number(10,2)"  desc="营运收入"/>
+			<col name="business_money_t" type="number(10,2)"  desc="营运收入(包含燃油附加费)"/>
+			<col name="business_num" type="number(10)"  desc="营运次数"/>
+			<col name="condition" type="number(10)"  desc="数据合格的营运次数"/>
+			<col name="is_fit" type="number(2)"  default="0" desc="车辆营运数据是否合格，0:合格；1:不合格"/>
+			<col name="filter_type" type="number(10)"  desc="筛选的信息所用的过滤方案，存放过滤方案的id"/>
+		</table>
+		<table name="business_screen_condition" desc="营运数据天统计筛选条件">
+			<col name="ID" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="con_one_dura" type="number(10)"  desc="单笔营运时间"/>
+			<col name="con_one_mile" type="number(10,2)"  desc="单笔营运里程"/>
+			<col name="con_two_num_m" type="number(10)"  desc="营运笔数小于数"/>
+			<col name="con_two_num_b" type="number(10)"  desc="营运笔数大于数"/>
+			<col name="con_three_mony_b" type="number(10,2)" desc="营运金额大于数"/>
+			<col name="con_three_mony_m" type="number(10,2)"  desc="营运金额小于数"/>
+			<col name="con_four_mile_m" type="number(10,2)"  desc="总公里小于数"/>
+			<col name="con_four_mile_b" type="number(10,2)"  desc="单比公里大于数"/>
+			<col name="con_five_time1" type="number(10)"  desc="筛选开始时间"/>
+			<col name="con_five_time2" type="number(10)"  desc="筛选结束时间"/>
+			<col name="con_five_dura" type="number(10)"  desc="筛选2笔连续时长"/>
+			<col name="operator_time" type="date"  desc=""/>
+			<col name="operator" type="number(10)"  desc=""/>
+			<col name="filter_name" type="varchar2(100)"  desc="过滤方案的名字"/>
+			<col name="default_plan" type="number"  desc="是否为默认过滤方案，1为是，0为不是"/>
+		</table>
+		<table name="driver_sms_examine" desc="驾驶员短信调查表">
+			<col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="phone" type="varchar2(50)"  desc=""/>
+			<col name="dest_no" type="varchar2(20)"  desc=""/>
+			<col name="driver_id" type="varchar2(50)"  desc=""/>
+			<col name="sms_content" type="varchar2(2048)"  desc="短信内容"/>
+			<col name="send_time" type="date" desc="发送时间"/>
+			<col name="order_id" type="number(10)"  desc="订单号"/>
+			<col name="is_reply" type="number(2)"  desc="是否回复"/>
+			<col name="reply" type="varchar2(1024)"  desc="回复内容"/>
+			<col name="reply_time" type="date"  desc="回复时间"/>
+		</table>
+		<table name="send_message_timer_info" desc="定时下发报文表">
+			<col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="send_time" type="date"  desc="下发时间"/>
+			<col name="last_send_time" type="date"  desc="上次发送时间"/>
+			<col name="plan_send_times" type="number(10)"  desc="计划发送次数"/>
+			<col name="yet_send_times" type="number(10)"  desc="短信内容"/>
+			<col name="interval_time" type="number(10)" desc="已发送次数"/>
+			<col name="status" type="number(10)"  desc="状态 待发送,0;已发送,1;已完成,2;"/>
+			<col name="message" type="varchar2(256)"  desc="报文内容 不可超过50个汉字"/>
+			<col name="create_time" type="date"  desc=""/>
+			<col name="creator" type="number(10)"  desc=""/>
+			<col name="dest_nos" type="blob"  desc="下发车辆"/>
+		</table>
+		<table name="driver_orders_all_stat" desc="驾驶员订单表">
+			<col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="stat_time" type="date"  desc="统计时间"/>
+			<col name="car_no" type="varchar2(30)"  desc="车牌号"/>
+			<col name="service_no" type="varchar2(30)"  desc="驾驶员工号"/>
+			<col name="order_num" type="number(10)"  desc="订单数"/>
+			<col name="fangkongsj" type="number(10)" desc="司机放空次数"/>
+			<col name="fangkongck" type="number(10)"  desc="乘客放空次数"/>
+			<col name="recode_time" type="date"  desc=""/>
+		</table>
+		<table name="single_iczero_car_day_stat" desc="驾驶员订单表">
+			<col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+			<col name="dest_no" type="varchar2(16)"  desc="车牌号"/>
+			<col name="company_id" type="number(10)"  desc="企业编号"/>
+			<col name="company_name" type="varchar2(128)"  desc="企业名称"/>
+			<col name="stat_time" type="date"  desc="统计日期"/>
+			<col name="num" type="number(10)" desc="次数"/>
+		</table>
+	</group>
+	
+	<group>
+	    <table name="manage_quantization_regular" desc="管理量化评分细则表">
+	     <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+         <col name="category_no" type="varchar2(6)" isNull="false" desc="类别编号" />
+         <col name="category_name" type="varchar2(50)" isNull="false" desc="类别" />
+	     <col name="project_no" type="varchar2(10)" isNull="false" desc="考核项目编号"/>
+	     <col name="project_name" type="varchar2(50)" isNull="false" desc="考核项目名称"/>
+	     <col name="grade" type="number(3,1)" isNull="false" desc="总分分值" />
+	     <col name="enter_or_not" type="number(2)" isNull="false" desc="是否允许输分"/>
+	     <col name="section_no" type="varchar2(10)" isNull="false" desc="考核科室编号"/>
+	     <col name="remark" type="varchar2(500)" isNull="false" desc="评分细则"/>
+	     <col name="operator" type="number(10)" desc="操作人"/>
+	     <col name="operator_time" type="date" desc="操作日期"/>
+	     <col name="regular_version" type="number(20)" desc="细则版本,0为默认版本,1为未启用版，否则按yyyymmddhhmiss作为版本号"/>
+	     </table>
+	     
+	     <table name="manage_quantization_plan1" desc="管理量化评分计划主表">
+            <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+            <col name="company_no" type="varchar2(10)" isNull="false" desc="考核公司编号"/>
+	        <col name="score_no" type="varchar2(10)" isNull="false" desc="考核成绩编号"/>
+            <col name="score_time" type="date" isNull="false" desc="考核时间"/>
+	     </table>
+	     
+	     <table name="manage_quantization_plan2" desc="管理量化评分计划副表">
+            <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+            <col name="score_no" type="varchar2(10)" isNull="false" desc="考核成绩编号"/>	
+            <col name="category_no" type="varchar2(6)" isNull="false" desc="类别编号" />
+            <col name="category_name" type="varchar2(50)" isNull="false" desc="类别" />
+	        <col name="project_no" type="varchar2(10)" isNull="false" desc="考核项目编号"/>
+	        <col name="project_name" type="varchar2(50)" isNull="false" desc="考核项目名称"/>
+            <col name="grade" type="number(3,1)" isNull="false" desc="实际得分分值" />
+	        <col name="enter_or_not" type="number(2)" isNull="false" desc="是否允许输分"/>
+	        <col name="section_name" type="varchar2(50)" isNull="false" desc="考核科室"/>
+	        <col name="remark" type="varchar2(500)" isNull="false" desc="评分细则"/>
+	        <col name="mark"   type="varchar2(500)" desc="备注"/>
+	        <col name="url" type="varchar2(200)" desc="上传的文件的路径"/>
+            <col name="is_edit" type="number" desc="是否可编辑状态  0:可编辑    1:不可编辑" default="0"/>
+         </table>
+         
+    <table name="service_quality_credit_regular" desc="服务质量信誉评分细则表">
+	       <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+           <col name="category_no" type="varchar2(6)" isNull="false" desc="类别编号" />
+           <col name="category_name" type="varchar2(50)" isNull="false" desc="类别" />
+	       <col name="project_no" type="varchar2(10)" isNull="false" desc="考核项目编号"/>
+	       <col name="project_name" type="varchar2(50)" isNull="false" desc="考核项目名称"/>
+	       <col name="grade" type="number(3)" isNull="false" desc="总分分值" />
+	       <col name="enter_or_not" type="number(2)" isNull="false" desc="是否允许输分"/>
+	       <col name="section_no" type="varchar2(10)" isNull="false" desc="考核科室编号"/>
+	       <col name="remark" type="varchar2(500)" isNull="false" desc="评分细则"/>
+	       <col name="operator" type="number(10)" desc="操作人"/>
+	       <col name="operator_time" type="date" desc="操作日期"/>
+	       <col name="regular_version" type="number(20)" desc="细则版本,0为默认版本,1为未启用版，否则按yyyymmddhhmiss作为版本号"/>
+	     </table>
+
+    <table name="service_credit_plan1" desc="信誉评分计划主表">
+           <col name="id" type="varchar2(10)" isNull="false" desc="" isPrimary="true"/>
+           <col name="company_no" type="varchar2(10)" isNull="false" desc="考核公司编号"/>
+	       <col name="score_no" type="varchar2(10)" isNull="false" desc="考核成绩编号"/>
+           <col name="score_time" type="date" isNull="false" desc="考核时间"/>
+    </table>
+
+    <table name="service_credit_plan2" desc="信誉评分计划副表">
+           <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+           <col name="score_no" type="varchar(10)" isNull="false" desc="考核成绩编号"/>	
+           <col name="category_no" type="varchar2(6)" isNull="false" desc="类别编号" />
+           <col name="category_name" type="varchar2(50)" isNull="false" desc="类别" />
+	       <col name="project_no" type="varchar2(10)" isNull="false" desc="考核项目编号"/>
+	       <col name="project_name" type="varchar2(50)" isNull="false" desc="考核项目名称"/>
+           <col name="grade" type="number(3)" isNull="false" desc="实际得分分值" />
+	       <col name="enter_or_not" type="number(2)" isNull="false" desc="是否允许输分"/>
+	       <col name="section_name" type="varchar2(50)" isNull="false" desc="考核科室编号"/>
+	       <col name="remark" type="varchar2(500)" isNull="false" desc="评分细则"/>
+           <col name="url" type="varchar2(200)" desc="上传的文件的路径"/>
+           <col name="is_edit" type="number" desc="是否可编辑状态  0:可编辑    1:不可编辑" default="0"/>
+     </table>
+	     
+	     <table name="section_table" desc="科室表">
+            <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+            <col name="section_no" type="varchar2(10)" isNull="false" desc="科室编号"/>
+            <col name="section_name" type="varchar2(50)" isNull="false" desc="科室名称"/>
+         </table>
+         
+         <table name="section_person" desc="科室人员表">
+            <col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+            <col name="section_no" type="varchar2(10)" isNull="false" desc="科室编号"/>
+            <col name="person_account" type="varchar2(50)" isNull="false" desc="人员账号"/>
+         </table>
+         
+         <table name="service_credit_assessment" desc="服务信誉质量评价表">
+         	<col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+         	<col name="company_no" type="varchar2(10)" isNull="false" desc="考核企业编号"/>
+         	<col name="project_name" type="varchar2(50)" isNull="false" desc="考核项目"/>
+         	<col name="grade" type="number(3)" desc="考核得分"/>
+         	<col name="section_name" type="varchar2(50)" isNull="false" desc="考核科室"/>
+         	<col name="score_time" type="date" isNull="false" desc="考核项目生成时间"/>
+            <col name="url" type="varchar2(200)" desc="上传的文件的路径"/>
+           	<col name="detail_no" type="varchar2(10)" desc="对应的那条细则编号"/>
+         </table>
+         
+         <table name="manage_quantization_assessment" desc="管理量化评价表">
+         	<col name="id" type="number(10)" isNull="false" desc="" isPrimary="true"/>
+         	<col name="company_no" type="varchar2(50)" isNull="false" desc="考核企业编号"/>
+         	<col name="project_name" type="varchar2(10)" isNull="false" desc="考核项目"/>
+         	<col name="grade" type="number(3,1)" desc="考核得分"/>
+         	<col name="section_name" type="varchar2(50)" isNull="false" desc="考核科室"/>
+           	<col name="score_time" type="date" isNull="false" desc="考核项目生成时间"/>
+           	<col name="mark" type="varchar2" desc="备注"/>
+           	<col name="url" type="varchar2(200)" desc="上传的文件的路径"/>
+           	<col name="detail_no" type="varchar2(10)" desc="对应的那条细则编号"/>
+         </table>
+         
+         <table name="single_business_filter_info" desc="营运分时段数据过滤情况记录表">
+         	<col name="car_no" type="varchar2(10)" desc="车牌号"/>
+         	<col name="filter_type" type="number(10)" desc="过滤类型，存放过滤方案id"/>
+         	<col name="is_fit" type="number(2)" desc="信息是否合格，合格为0，不合格为1"/>
+         	<col name="record_time" type="date" desc="过滤信息对应的日期"/>
+         </table>   
+             
+         <table name="driver_star_grade_month" desc="星级驾驶员月统计表">
+         	<col name="driver_number" type="number(10)" desc="星级大于0驾驶员数量"/>
+         	<col name="company_no" type="varchar2(10)" desc="公司编号"/>
+         	<col name="record_date" type="date" desc="记录的时间"/>
+         </table>
+         <table name="driver_work_level_month" desc="驾驶员技能等级统计表">
+         	<col name="driver_number" type="number(10)" desc="驾驶员技能等级大于0的驾驶员数量"/>
+         	<col name="company_no" type="varchar2(10)" desc="公司编号"/>
+         	<col name="record_date" type="date" desc="记录的时间"/>
+         </table>
+         
+         <table name="driver_company_month" desc="驾驶员数量月统计表">
+         	<col name="driver_number" type="number(10)" desc="驾驶员数量"/>
+         	<col name="company_no" type="varchar2(10)" desc="公司编号"/>
+         	<col name="record_date" type="date" desc="记录的时间"/>
+         </table>
+         <table name="driver_info" desc="驾驶员信息表">
+         	<col name="TERM_ID" type="VARCHAR2(6)" desc="" isPrimary="true"/>    
+         	<col name="DRIVER_NAME" type="VARCHAR2(20)" desc="" isNull="false"/>    
+         	<col name="SEX" type="VARCHAR2(2)" desc=""/>     
+         	<col name="BORN_DATE" type="DATE" desc=""/>            
+         	<col name="LICENSE" type="VARCHAR2(18)" desc=""/>    
+         	<col name="HOME_TEL" type="VARCHAR2(30)" desc=""/>    
+         	<col name="MOBILE" type="VARCHAR2(30)" desc=""/>    
+         	<col name="SERVICE_NO" type="VARCHAR2(19)" desc="" isNull="false"/>    
+         	<col name="CAR_ID" type="VARCHAR2(10)" desc=""/>    
+         	<col name="PASSWORD" type="VARCHAR2(10)" desc="" isNull="false"/>    
+         	<col name="GPS_MARK" type="NUMBER(10)" desc=""/>      
+         	<col name="OTHER_PROVINCE" type="CHAR(1)" desc="" isNull="false"/>         
+         	<col name="TEAM_ID" type="VARCHAR2(10)" desc=""/>    
+         	<col name="ALLOW_NO" type="VARCHAR2(50)" desc=""/>    
+         	<col name="PERSONALID" type="VARCHAR2(50)" desc=""/>    
+         	<col name="ADDRESS" type="VARCHAR2(100)" desc=""/>   
+         	<col name="OTHER" type="VARCHAR2(200)" desc=""/>   
+         	<col name="PHOTO" type="VARCHAR2(100)" desc=""/>   
+         	<col name="LAST_LOGIN_TIME" type="DATE" desc=""/>           
+         	<col name="LAST_LOGOUT_TIME" type="DATE" desc=""/>            
+         	<col name="DRIVERCARDID" type="VARCHAR2(30)" desc=""/>    
+         	<col name="VALIDITY_DATE" type="DATE" desc=""/>            
+         	<col name="GRADE" type="NUMBER(10)" desc=""/>      
+         	<col name="DRIVER_LIKE" type="VARCHAR2(1024)" desc=""/>  
+         	<col name="FINGERCODE" type="VARCHAR2(1024)" desc=""/>  
+         	<col name="FINGERPHOTO" type="BLOB" desc=""/>            
+         	<col name="SHENFENZHENG" type="VARCHAR2(64)" desc=""/>    
+         	<col name="DRIVER_TYPE" type="NUMBER(2)" desc="" isNull="false"/>       
+         	<col name="ID_CARD" type="VARCHAR2(18)" desc=""/>    
+         	<col name="WORK_LEVEL" type="NUMBER" desc="驾驶员技能等级"/>
+         	<col name="DEGREE"  type="number(2)" desc="驾驶员学历：1、文盲与半文盲；2、小学毕业；3、初中毕业；4、高中或同等学历；5、大学或同等学历；6、大学以上"/>
+            <col name="START_CAREER" type="DATE" desc="从业开始时间"/>
+         </table> 
+         <table name="single_business_data_hour" desc="营运数据基础表（用于分时段）">         
+         	<col name="ID" type="NUMBER(20)" desc=""/>    
+         	<col name="SERVICE_NO" type="VARCHAR2(20)" desc="" isNull="false"/>  
+         	<col name="CAR_NO" type="VARCHAR2(10)" desc=""/>  
+         	<col name="MDT_ID" type="NUMBER(10)" desc=""/>    
+         	<col name="DISPATCH_CAR_NO" type="VARCHAR2(10)" desc=""/>  
+         	<col name="GATEWAY_ID" type="NUMBER(10)" desc=""/>    
+         	<col name="TAXI_GROUP" type="VARCHAR2(20)" desc=""/>  
+         	<col name="TAXI_COMPANY" type="VARCHAR2(20)" desc=""/>  
+         	<col name="UPRICE" type="NUMBER(10,2)" desc=""/>  
+         	<col name="WAITING_HOUR" type="NUMBER(10)" desc=""/>    
+         	<col name="WAITING_MINUTE" type="NUMBER(10)" desc=""/>    
+         	<col name="WAITING_SECOND" type="NUMBER(10)" desc=""/>    
+         	<col name="DISTANCE" type="NUMBER(10,2)" desc=""/>  
+         	<col name="SUM" type="NUMBER(10,2)" desc=""/>  
+         	<col name="DATE_UP" type="DATE" desc=""/>          
+         	<col name="DATE_DOWN" type="DATE" desc=""/>          
+         	<col name="FREE_DISTANCE" type="NUMBER(10,2)" desc=""/>  
+         	<col name="RECORD_SERIAL_NO" type="NUMBER(10)" desc=""/>    
+         	<col name="ORDER_ID" type="NUMBER(10)" desc=""/>    
+         	<col name="IS_TELE_ORDER" type="NUMBER(1)" desc=""/>     
+         	<col name="FLOWNO" type="NUMBER(5)" desc=""/>     
+         	<col name="OYSTER_CARD_ID" type="VARCHAR2(20)" desc=""/>  
+         	<col name="OYSTER_CARD_ORIGIN_SUM" type="NUMBER(12,2)" desc=""/>  
+         	<col name="OYSTER_CARD_LEFT_SUM" type="NUMBER(12,2)" desc=""/>  
+         	<col name="AUTHENTICATION_CODE" type="VARCHAR2(50)" desc=""/>  
+         	<col name="UP_LONGITUDE" type="NUMBER(30,14)" desc=""/> 
+         	<col name="UP_LATITUDE" type="NUMBER(30,14)" desc=""/> 
+         	<col name="DOWN_LONGITUDE" type="NUMBER(30,14)" desc=""/> 
+         	<col name="DOWN_LATITUDE" type="NUMBER(30,14)" desc=""/> 
+         	<col name="RECODE_TIME" type="DATE" desc=""/>          
+         	<col name="WIRELESS_ALLOW_LIST" type="NUMBER(10)" desc=""/>    
+         	<col name="LOGOUT_COMFIRM" type="NUMBER(10)" desc=""/>    
+         	<col name="LOGOUT_ID" type="NUMBER(20)" desc=""/>    
+         	<col name="RELEASE_STATUS" type="NUMBER(10)" desc=""/>    
+         	<col name="CARD_CONFIRM_SUM" type="NUMBER(10,2)" desc=""/>  
+         	<col name="IDLE1TIMES" type="VARCHAR2(5)" desc=""/>   
+         	<col name="IDLE2TIMES" type="VARCHAR2(5)" desc=""/>   
+         	<col name="RUN1TIMES" type="VARCHAR2(5)" desc=""/>   
+         	<col name="RUN2TIMES" type="VARCHAR2(5)" desc=""/>   
+         	<col name="LOCK_CARD" type="VARCHAR2(3)" desc=""/>   
+         	<col name="SAM" type="VARCHAR2(10)" desc=""/>  
+         	<col name="BUSINESS_NO" type="VARCHAR2(8)" desc=""/>   
+         	<col name="CITY_NO" type="VARCHAR2(4)" desc=""/>   
+         	<col name="CARD_TYPE" type="VARCHAR2(2)" desc=""/>   
+         	<col name="BUSINESS_COUNT" type="VARCHAR2(10)" desc=""/>  
+         	<col name="SETTLED_TIME" type="DATE" desc=""/>          
+         	<col name="POS" type="VARCHAR2(30)" desc=""/>  
+         	<col name="CARD_IN_VERSION" type="VARCHAR2(15)" desc=""/>  
+         	<col name="COMPANY_CODE" type="VARCHAR2(20)" desc=""/>  
+         	<col name="OPERATION_ID" type="VARCHAR2(20)" desc=""/>  
+         	<col name="NOWCARTIME" type="VARCHAR2(100)" desc=""/> 
+         	<col name="GUSUAN_DISTANCE" type="NUMBER(10,2)" desc=""/>  
+         	<col name="ALLOWSHARE" type="NUMBER(1)" desc=""/>  
+          </table>
+	</group>
+	
+	<sequence name="laf_seq" desc="对应表LOSTANDFOUND" />
+	<sequence name="company_info_seq" desc="对应表company_info" />
+	<sequence name="inform_info_seq" desc="对应表information_info" />
+	<sequence name="inform_company_info_seq" desc="对应表information_company_info" />
+	<sequence name="reply_info_seq" desc="对应表reply_info" />
+	<sequence name="seq_company_train_info" desc="对应表company_train_info" />
+	<sequence name="seq_car_basic_info" desc="对应表car_basic_info" />
+	<sequence name="seq_car_para_info" desc="对应表car_para_info" />
+	<sequence name="seq_car_repair" desc="对应表car_repair_reg" />
+	<sequence name="seq_car_check_reg" desc="对应表car_check_reg" />
+	<sequence name="seq_car_accident_reg" desc="对应表car_accident_reg" />	
+	<sequence name="seq_driver_basic_info" desc="对应表driver_basic_info" />
+	<sequence name="seq_driver_family_info" desc="对应表driver_family_info" />
+	<sequence name="seq_work_undergo_info" desc="对应表work_undergo_info" />
+	<sequence name="seq_assess_years_info" desc="对应表assess_years_info" />
+	<sequence name="seq_ana_grade_company_daystat" desc="对应表ana_grade_company_daystat" />
+	<sequence name="SEQ_ANA_CAR_TRACKSTATUS_STAT" desc="对应表ANA_CAR_TRACKSTATUS_STAT" />
+	<sequence name="seq_traffic_transgress_info" desc="对应表traffic_transgress_info" />
+	<sequence name="seq_service_complain_info" desc="对应表service_complain_info" />
+	<sequence name="seq_traffic_accident_info" desc="对应表traffic_accident_info" />
+	<sequence name="seq_bussiness_transgress_info" desc="对应表bussiness_transgress_info" />
+	<sequence name="service_quality_regular_seq" desc="对应表service_quality_credit_regular"/>
+	<sequence name="quantization_regular_seq" desc="对应表 manage_quantization_regular"/>
+	<sequence name="section_person_seq" desc="对应表section_person"/>
+	<sequence name="section_table_seq" desc="对应表section_table"/>
+	<sequence name="credit_plan2_seq" desc="对应表service_credit_plan2"/>
+	<sequence name="credit_plan1_seq" desc="对应表service_credit_plan1"/>
+	<sequence name="quantization_plan2_seq" desc="对应表manage_quantization_plan2"/>
+	<sequence name="quantization_plan1_seq" desc="对应表 manage_quantization_plan1"/>
+    <sequence name="credit_assessment_seq" desc="对应表 service_credit_assessment"/>
+	<sequence name="quantization_assessment_seq" desc="对应表 manage_quantization_assessment"/>
+	
+	
+	<group desc="dblink、synonym 宁波出租车管理平台DBLINK以及表同义词">
+		<view1 name="v_rysgclxx" desc="出租车的人员上岗车辆信息表">
+			<sql>
+		select a.HPHM, b.CHANGPAI CLPP, b.ZDBH ZDBH,
+       (case when length(b.SIMID) = 12 then substr(b.SIMID,1,11) else b.SIMID end) SIMID,d.XM JSYXM, a.SFZH, d.XB JSYXB,
+       d.SJH JSYDH, a.ZGZBM JSYZGZH,
+       (case when length(c.YEHUMC)&gt;8 and c.YEHUMC &lt;&gt; '张立军(鄞州区古林)' then c.YEHUMC else '宁波市鄞州港宁出租车管理有限公司' end) SSGS,
+       d.CSRQ, a.FZRQ, a.SXRQ,c.TALENTS_LXR QYLXR, c.TALENTS_LXDH QYLXRDH,
+       (case when length(c.YEHUMC)&gt;8 and c.YEHUMC &lt;&gt; '张立军(鄞州区古林)' then e.YHJC else '港宁' end) YHJC
+ from CYZGSGZ a, TACLXX b, TAYHXX c, CYZGRYXX d, QYCLJCQYB e
+ where a.HPHM = substr(b.CHEPAIHM,5,4) and b.YHID = c.YHID and a.SFZH = d.SFZH and c.yhid = e.yhid(+) and a.JLZT = 0;
+			</sql>
+		</view1>
+		<dblink>
+			<sql>
+				create database link MTAXI_DB connect to mtaxi identified by "mtaxi"
+	        	using '(DESCRIPTION =
+	                (ADDRESS_LIST =
+	                  (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.100.243)(PORT = 1521))
+	                )
+	                (CONNECT_DATA =
+	                  (SERVICE_NAME = orcl)
+	                )
+	              )';
+			</sql>
+		</dblink>
+		<synonym desc="从业资格证记录表">
+			<sql>create or replace synonym cyzgjlb for cyzgjlb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="从业资格历史考评记录--驾驶员个人历史考评记录">
+			<sql>create or replace synonym cyzglskpjl for cyzglskpjl@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="从业资格证人员信息表">
+			<sql>create or replace synonym cyzgryxx for cyzgryxx@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="从业资格上岗证">
+			<sql>create or replace synonym cyzgsgz for cyzgsgz@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="企业车辆稽查表">
+			<sql>create or replace synonym qycljcb for qycljcb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="企业车辆稽查内容表">
+			<sql>create or replace synonym qycljcnrb for qycljcnrb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="企业车辆稽查企业表">
+			<sql>create or replace synonym qycljcqyb for qycljcqyb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="出租车加分表">
+			<sql>create or replace synonym taadditem for taadditem@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="车辆信息历史考评记录表">
+			<sql>create or replace synonym taclxttlskpjl for taclxttlskpjl@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="出租车车辆信息表">
+			<sql>create or replace synonym taclxx for taclxx@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="车辆营运服务规范扣分信息表">
+			<sql>create or replace synonym taclyygfkfb for taclyygfkfb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="驾驶员个人加分记录表">
+			<sql>create or replace synonym tajfjlb for tajfjlb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="扣分记录表">
+			<sql>create or replace synonym takfjlb for takfjlb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="扣证记录表">
+			<sql>create or replace synonym takzjlb for takzjlb@mtaxi_db;</sql>
+		</synonym>
+		<synonym desc="出租车业户信息表">
+			<sql>create or replace synonym TAYHXX for TAYHXX@mtaxi_db;</sql>
+		</synonym>
+	</group>
+</db>

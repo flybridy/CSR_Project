@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<start_server>	
+	<server>
+		<server_name>WebServiceServer</server_name>
+		<desc></desc>
+		<class_name>com.fleety.analysis.t_track.WebServiceServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+
+		<para key="account" value="feitian"/>
+		<para key="password" value="123456"/>
+		<para key="service_url" desc="WEBServices地址" value="http://172.17.3.164/sungov/eventreport.asmx?wsdl"/>
+	</server>
+	
+	<server>
+		<server_name>2到5点凌晨违规营运服务</server_name>
+		<desc>2点到5点之间在广东省外，营运距离超过10km算作违规</desc>
+		<class_name>com.fleety.analysis.t_track.ErrorWorkingIn2_5AnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="limit_distance" value="10"/>
+		<para key="exclude_dest_file" value="conf/personal/sz/jieboche_list.txt"/>
+		<para key="province_region" value="conf/personal/sz/gds_region.txt"/>
+		
+		<para key="hour" value="6" desc="执行时间的小时"/>
+		<para key="minute" value="0" desc="执行时间的分钟"/>
+	</server>
+</start_server>

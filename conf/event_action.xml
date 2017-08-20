@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<!-- 所有事件描述
+	-1:自注册事件。-1事件从来不发生，但是在行为初始化时可能代码内部注册多个存在的事件。
+ -->
+<global_event_action>
+	<event name="1">
+		<action name="车辆营运数据统计成功事件">
+			<desc>车辆营运数据统计成功事件</desc>
+			<class_name>com.fleety.server.event.listener.CarBusinessStatFinishListener</class_name>
+			<create_method></create_method>
+			<enable>true</enable>
+			<para key="recount_start_date" value="2014-03-25" desc="闭区间，重新计算的起始日期，如果起始日期和结束日期中任一为空，不做重新计算"/>		
+			<para key="recount_end_date" value="2014-03-25" desc="闭区间，重新计算的结束日期，如果起始日期和结束日期中任一为空，不做重新计算"/>
+			<para key="min_times" value="30" desc="filter最小营运次数,如果是0不考虑此参数"/>	
+			<para key="max_times" value="80" desc="filter最大营运次数,如果是0不考虑此参数"/>	
+			<para key="min_total_mile" value="200" desc="filter最小总里程,如果是0不考虑此参数"/>	
+			<para key="max_total_mile" value="600" desc="filter最大总里程,如果是0不考虑此参数"/>
+			<para key="min_total_income" value="600" desc="filter最小总里程,如果是0不考虑此参数"/>	
+			<para key="max_total_income" value="1500" desc="filter最大总里程,如果是0不考虑此参数"/>
+			<para key="manager_cost" value="200" desc="管理费"/>	
+		</action>
+	</event>
+</global_event_action>

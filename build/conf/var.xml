@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<var-set>
+	 <var name="fuel_surcharges" value="2"/>
+	 <var name="speed" value="5" desc="最低速度判断值"/>
+	 <var name="max_stop_time" value="4" desc="停驶最大时间判断值"/>
+	 <var name="max_work_time" value="4" desc="连续工作最大时间判断值"/>
+	 <var name="over_time_stop_alert" value="超时停车提醒" desc="超时提醒报文内容"/>
+	 <var name="over_time_driver_alert" value="超时驾驶提醒" desc="超时驾驶提醒报文内容"/>
+	 <var name="initiate_rate_ks" value="3" desc="起步价公里数"/>
+	 <var name="max_ks" value="10" desc="最大公里数"/>
+	 <var name="day_work_time" value="5,23" desc="白天工作时间范围"/>
+	 <var name="night_work_time" value="23,5" desc="晚上工作时间范围"/>
+	 
+	 <var name="key_area_not_check_status_change" value="true" desc="进入关键区域是否检测车辆状态变化"/>
+	 
+	 <var name="key_area_inteval_second" value="300" desc="进入关键区域被认定为同一次进入区域的时间间隔，单位秒"/>	
+	 <var name="key_area_min_second" value="60" desc="进入关键区域持续停留时长，单位秒"/>	
+	 <var name="off_line_duration_min" value="30" desc="车辆离线时长，单位分钟"/> 
+	 <var name="type_greed_id" value="2" desc="绿的类型id，对应car_type表，默认是2"/> 
+	 <var name="off_line_speed" value="0" desc="判断终端离线的最小速度，如果是0表示只统计没有GPS汇报的车"/> 
+	 <var name="stop_valid_point_num" value="true" desc="判断停驶时是否判断达成总点数大于平均2分钟一个点"/> 
+	 
+	 <var name="continuation_exception_max_status_num" value="1" desc="营运状态未发生变化最大次数"/>
+	 <var name="continuation_exception_min_Frequentness" value="1440" desc="最小上传频度"/>
+	 <var name="continuation_exception_valid" value="0.9" desc="一天内的有效点不足频度要求点数的百分比"/>
+	 <var name="continuation_exception_valid_time" value="5" desc="判断点是否有 效的最大允许值(分钟)"/>
+	 <var name="continuation_exception_normal_time" value="1" desc="单点平均延长时长正常的最大允许值(分钟)"/>
+	 <var name="continuationOperateNum" value="1" desc="最小车辆日上传营运数据比数"/>
+	 <var name="continuationWaitTime" value="12" desc="最大允许等候时长(小时)"/>
+	 <var name="continuationSpeedArea" value="-10,10-20,20-30,30-" desc="速度跨区段(km/h)"/>
+	 <var name="continuation_exception_fly_mile" value="10.0" desc="判断非飞点最小标准(公里)"/>
+	 <var name="continuation_exception_fly_num" value="10" desc="最大允许的飞点数"/>
+	 
+	 <var name="standard_1" value="1" desc="Gps数据异常数允许的最大百分比(单位：%)"/>
+	 <var name="standard_2" value="5" desc="营运数据异常数允许的最大百分比(单位：%)"/>
+	 <var name="standard_3" value="5" desc="Gps数据不合格数允许的最大百分比(单位：%)"/>
+	 <var name="standard_4" value="5" desc="营运数据不合格数允许的最大百分比(单位：%)"/>
+	 <var name="tingStandard" value="1" desc="打车难区域考核停留时长标准（秒）"/>	
+	 
+	 
+	 <var name="capacity_area_inteval_second" value="300" desc="进入运力监控区域被认定为同一次进入区域的时间间隔，单位秒"/>	
+	 <var name="capacity_area_min_second" value="60" desc="进入运力监控区域持续停留时长，单位秒"/>
+	 
+	 <var name="nostop_area_inteval_second" value="300" desc="进入禁停监控区域被认定为同一次进入区域的时间间隔，单位秒"/>	
+	 <var name="nostop_area_min_second" value="60" desc="进入禁停监控区域持续停留时长，单位秒"/>
+	 
+	 <var name="DISPATCH_FALG" value="徐州" desc="短信发送来源标示，调度平台"/>
+	 <var name="SJZC_FALG" value="sjzc" desc="短信发送来源标示，手机召车"/>	
+	 <var name="WYZC_FALG" value="wyzc" desc="短信发送来源标示，网页召车"/>
+	 	
+	 <var name="phone_acount" value="111111,222222,333333,444444,555555,666666,777777,888888,999999" desc="手机运营商账号"/>
+</var-set>

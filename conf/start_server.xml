@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<start_server>
+	
+	<server>
+		<server_name>log server</server_name>
+		<desc>重定向日记信息</desc>
+		<class_name>server.log.LogServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+
+		<para key="append_head" value="true"/>
+		<para key="log_dir" value="E:\log"/>	
+		<para key="keepLogDays" value="5"/>
+	</server>	
+		<server>
+		<server_name>数据库连接池服务</server_name>
+		<desc>构建一个数据库连接池，为其它需要使用的地方提供连接对象.必须启动.</desc>
+		<class_name>server.db.DbServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>true</failure_system_exit>
+		
+		<para key="driver" value="com.mysql.jdbc.Driver"/>
+    <!-- <para key="url" value="jdbc:mysql://192.168.40.128:3306/lab?useUnicode=true&amp;characterEncoding=utf8" desc="数据库url地址"/>
+     <para key="user" value="csr" desc="数据库用户名"/>
+     <para key="pwd" value="csr123" desc="数据库用户密码"/> -->
+    <para key="url" value="jdbc:mysql://localhost:3306/lab?useUnicode=true&amp;characterEncoding=utf8" desc="数据库url地址"/>
+     <para key="user" value="root" desc="数据库用户名"/>
+     <para key="pwd" value="" desc="数据库用户密码"/>
+   <!--   <para key="database_type" value="MYSQL" desc="数据库用户密码"/> -->
+		<para key="use_time" value="60000"/>
+		<para key="init_num" value="1"/>
+		<para key="min_num" value="1"/>
+		<para key="max_num" value="30"/>
+
+		<!-- 当该参数为true时，有连接超时使用或者不能获取到连接时将会打印出连接的使用者。 -->
+		<para key="enable_stack" value="true"/>
+		<!-- 数据库连接是否是只读的，true代表只读，其它代表可写 -->
+		<para key="is_only_read" value="false"/>
+	</server>
+	
+	
+	
+	<server>
+      <server_name>redis内存数据库连接池服务</server_name>
+      <desc>构建一个redis内存数据库连接池，为其它需要使用的地方提供连接对象.</desc>
+      <class_name>com.fleety.util.pool.db.redis.RedisConnPoolServer</class_name>
+      <create_method>getSingleInstance</create_method>
+      <enable_server>false</enable_server>
+      <failure_system_exit>false</failure_system_exit>
+      <para key="ip" value="172.17.73.217"/>
+      <para key="port" value="6999"/>
+      <para key="maxActive" value="500"/>
+	  <para key="maxIdle" value="5"/>
+      <para key="minIdle" value="1"/>
+      <para key="maxWait" value="100000"/>
+      <para key="testOnBorrow" value="true"/>
+      <para key="testWhileIdle" value="true"/>
+      <para key="timeout" value="30000"/>
+      <para key="passwd" value=""/>
+   </server>
+	<server>
+		<server_name>变量配置服务</server_name>
+		<desc></desc>
+		<class_name>server.var.VarManageServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="cfg_path" value="./conf/var.xml" desc="变量配置文件路径"/>
+	</server> 	
+    <server>
+		<server_name>Job服务</server_name>
+		<desc></desc>
+		<class_name>com.fleety.server.JobLoadServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="cfg_path" value="F:\workspaceyao\DataAnalysisServer\DataAnalysisServer\conf\scheduler.xml" desc="job配置文件路径"/>
+	</server>
+	
+    	 <server>
+		<server_name>打印系统信息服务</server_name>
+		<class_name>com.fleety.systeminfo.SystemInfoServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+	</server>
+	
+	<server>
+		<server_name>udp探头数据接收服务</server_name>
+		<desc>探头数据解析保存服务</desc>
+		<class_name>com.csr.ana.ProReceiveServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="log_dir" value="fdfdf:/" desc="接收数据日志路劲"/>
+	</server>
+    <server>
+		<server_name>tcp探头数据接收服务</server_name>
+		<desc>探头数据解析保存服务</desc>
+		<class_name>com.csr.ana.TcpProReceiveServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="log_dir" value="fdfdf:/" desc="接收数据日志路劲"/>
+	</server>
+	<server>
+		<server_name>静态数据刷新服务</server_name>
+		<desc>静态数据刷新服务</desc>
+		<class_name>com.csr.datamanager.DateInitServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="init_delay" value="3" desc="接收数据日志路劲"/>
+	</server>
+</start_server>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<project name="DataAnalysisServer" default="build" basedir="..">
+  
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  <property name="lib" location="lib"/>
+  <property name="build" location="build"/>  
+
+
+  <target name="init">
+	<delete dir="${build}" />
+    <mkdir dir="${build}" />
+    <mkdir dir="${build}/lib" />
+    <mkdir dir="${build}/db_desc" />
+  </target>
+  
+  <target name="jar" depends="init" description="generate the distribution" >
+	<jar basedir="${bin}" destfile="${build}/lib/dataAnalysis.jar"/>
+		
+	<jar jarfile="${lib}/module.jar" manifest="${bin}/META-INF/MANIFEST.MF" update="true"/>
+  </target>
+
+  <target name="build" depends="jar">
+	<copy todir="${build}/lib/">
+		<fileset dir="${lib}/">
+			<include name="**/*.jar"/>
+			<exclude name="**/module.jar"/>
+		</fileset>
+	</copy>
+	<copy todir="${build}/">
+		<fileset dir="${lib}/">
+			<include name="module.jar"/>
+		</fileset>
+	</copy>
+	<copy todir="${build}/conf">
+		<fileset dir="conf/">
+			<include name="**/*.xml"/>
+			<include name="**/*.txt"/>
+			<include name="**/*.mif"/>
+		</fileset>
+	</copy>
+	<copy todir="${build}">
+		<fileset dir=".">
+			<include name="server.sh"/>
+		</fileset>
+	</copy>
+	
+	<copy todir="${build}/db_desc">
+		<fileset dir="db_desc">
+			<include name="db.xml"/>
+		</fileset>
+	</copy>
+	<copy todir="${build}/jetty">
+		<fileset dir="jetty/">
+			<include name="**/**"/>
+			<exclude name="**/ROOT.xml"/>
+		</fileset>
+	</copy>
+  </target>
+</project>

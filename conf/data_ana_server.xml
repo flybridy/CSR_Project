@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<start_server>		
+	<server>
+		<server_name>探头数据接收服务</server_name>
+		<desc>探头数据解析保存服务</desc>
+		<class_name>com.fleety.analysis.operation.YesterdayOperatingDataAnalysisServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>	
+		<para key="hour" value="2"/>
+		<para key="minute" value="30"/>
+		<para key="key_area_stat_pre_time" value="5"/>
+		<para key="preDays" value="5"/><!-- 分析天数 -->
+		<para key="isaddana" value="false" desc="是否增补分析指定日期数据"/>
+		<para key="add_startdate" value="20160116" desc="增补分析数据的开始日期，包含该日期，yyyymmdd"/>
+		<para key="add_enddate" value="20160117" desc="增补分析数据的结束日期，包含该日期，yyyymmdd"/>
+		<para key="task_class" value="com.fleety.analysis.operation.task.VehicleOperateDataAnalysisForDay" desc="单车营运数据统计分析"/>					
+	</server>
+	<server>
+		<server_name>昨日综合数据分析服务（多天分析）</server_name>
+		<desc>提取昨日的综合营运数据，主要是统计企业、单车、驾驶员的营运数据，供给具体的分析服务进行分析.（多天分析）</desc>
+		<class_name>com.fleety.analysis.operation.YesterdayOperatingDataAnalysisServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="2"/>
+		<para key="minute" value="30"/>
+		<para key="start_day" value="2016-01-01" desc="分析开始日期"/>
+		<para key="end_day" value="2016-09-26" desc="分析结束日期"/>
+		
+		<!-- <para key="task_class" value="com.fleety.analysis.operation.task.VehicleOperateDataAnalysisForDaySZ" desc="单车营运数据统计分析(深圳使用)"/> -->
+		<para key="task_class" value="com.fleety.analysis.operation.task.VehicleOperateDataAnalysisForDaySZ_waittime" desc="单车营运数据统计分析(深圳使用)"/>
+		<para key="task_class" value="com.fleety.analysis.operation.task.VehicleCheatCountSZ" desc="单车营运数据作弊统计(深圳使用)"/>		
+	</server>
+	<server>
+		<server_name>昨日综合数据分析服务（数据准备）</server_name>
+		<desc>提取昨日的综合营运数据，主要是统计企业、单车、驾驶员的营运数据，供给具体的分析服务进行分析.（数据准备）</desc>
+		<class_name>com.fleety.analysis.operation.YesterdayOperatingDataPrepareAnalysisServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="2"/>
+		<para key="minute" value="30"/>
+		<para key="num" value="1" desc="分析天数"/>
+		
+		<para key="task_class" value="com.fleety.analysis.operation.task.VehicleOperatorDataAnalysisForHourSZ" desc="单车按小时统计的后台数据准备"></para>
+	</server>
+	<server>
+		<server_name>单车营运数据统计分析服务</server_name>
+		<desc>单车营运数据统计分析(半小时)</desc>
+		<class_name>com.fleety.analysis.operation.VehicleOperateHalfHourAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="3"/>
+		<para key="minute" value="0"/>
+	</server>
+	
+	
+	<server>
+		<server_name>实时轨迹数据分析服务</server_name>
+		<desc>提取实时数据，供给具体的分析服务进行分析.</desc>
+		<class_name>com.fleety.analysis.operation.ActuralOperatingDataAnalysisServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="circle_time" value="10"/>
+		<para key="analysis_timer_pool" value="actural_track_timer"/>
+		<para key="analysis_thread_pool" value="actural_track_pool"/>
+		
+		<para key="level_min_stop_duration" value="30" desc="单位分钟"/>
+		<para key="level_max_stop_speed" value="10" desc="停驶时的最大速度"/>
+		
+		 <para key="task_class" value="com.fleety.analysis.operation.task.VehicleStopLevelAnalysis" desc="单车实时停驶时间分析"/>
+		
+		<!-- <para key="task_class" value="com.fleety.analysis.operation.task.ActuralVehicleStopTimeAnalysis" desc="单车实时停驶时间统计分析"/>
+		<para key="task_class" value="com.fleety.analysis.operation.task.ActuralVehicleWorkDurationTimeAnalysis" desc="单车实时连续工作时长统计分析"/> -->
+	</server>
+   <server>
+		<server_name>驻点区域违规车辆分析服务</server_name>
+		<desc>驻点区域违规车辆分析服务</desc>
+		<class_name>com.fleety.analysis.area.AreaCarViolateRegularAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="5"/>
+		<para key="minute" value="0"/>
+		<para key="duraStandard" value="1"/><!-- 停留时长标准（小时） -->
+		<para key="mileStandard" value="20"/><!-- 行驶里程标准（KM） -->
+		<para key="mail" value="guang.zhou@fleety.com" desc="逗号分隔多个邮件"/>
+	</server>
+   <server>
+		<server_name>月业务量时间分布分析服务</server_name>
+		<desc>分析每个时段的业务数</desc>
+		<class_name>com.fleety.analysis.order.BusinessMonthAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="0"/>
+	</server>
+	
+	<server>
+		<server_name>月调度业务时间分布分析服务</server_name>
+		<desc>分析每个时段的业务数</desc>
+		<class_name>com.fleety.analysis.order.OrderMonthAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="10"/>
+	</server>
+	
+	<server>
+		<server_name>营运里程与估计对比统计服务</server_name>
+		<desc>营运里程与估计对比统计服务</desc>
+		<class_name>com.fleety.server.BusinessGuSuanAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="2"/>
+		<para key="minute" value="00"/>
+	</server>
+	<server>
+		<server_name>公司日调度业务统计服务</server_name>
+		<desc>公司日调度业务统计服务</desc>
+		<class_name>com.fleety.analysis.order.OrderCompanyAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="30"/>
+	</server>
+	<server>
+		<server_name>驾驶员接单数日统计分析服务</server_name>
+		<desc>驾驶员接单数日统计分析服务</desc>
+		<class_name>com.fleety.analysis.order.DriverOrdersDayAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="0"/>
+	</server>
+	<!-- 
+	<server>
+		<server_name>驾驶员接单情况日统计分析服务</server_name>
+		<desc>驾驶员接单情况日统计分析服务</desc>
+		<class_name>com.fleety.analysis.order.DriverOrdersAllDayAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="30"/>
+		<para key="relate" value="5" desc="单位分钟"/>
+		<para key="is_plat" value="true" desc="是否过滤其他运营商数据"/>
+	</server>   
+	-->
+	<server>
+		<server_name>计价器数据分析日报表服务</server_name>
+		<desc>计价器数据分析日报表服务</desc>
+		<class_name>com.fleety.analysis.order.BusinessDayAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="OIL_EXTRA_FEE" value="1"/>
+		<para key="hour" value="0"/>
+		<para key="minute" value="30"/>
+	</server>
+	<server>
+		<server_name>话务员绩效分析服务</server_name>
+		<desc>话务员绩效分析服务</desc>
+		<class_name>com.fleety.analysis.operation.OperatorJxAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="CREATE_SOURCE" value="10"/>
+		<para key="CANCEL_SOURCE" value="4"/>
+		<para key="FANGKONG_SOURCE" value="4"/>
+		<para key="MODIFY_SOURCE" value="4"/>
+		<para key="hour" value="0"/>
+		<para key="minute" value="30"/>
+	</server>
+	<server>
+		<server_name>驾驶员积分统计服务</server_name>
+		<desc>每天零时记录驾驶员当天积分服务</desc>
+		<class_name>com.fleety.analysis.driver.DriverGpsMarkAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="0"/>
+		<para key="minute" value="5"/>
+	</server>
+	<server>
+		<server_name>企业的服务评价日统计服务</server_name>
+		<desc>企业的服务评价日统计服务</desc>
+		<class_name>com.fleety.analysis.grade.GradeCompanyAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="30"/>
+	</server>
+	
+	<server>
+		<server_name>驾驶员交接班统计服务</server_name>
+		<desc>驾驶员交接班统计服务</desc>
+		<class_name>com.fleety.analysis.driverchange.DriverChangeLocationAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="stat_kilo" value="1000"/>
+		<para key="min_cluster_num" value="10"/>
+		<para key="hour" value="0"/>
+		<para key="minute" value="30"/>
+	</server>
+	
+	<server>
+		<server_name>定时拍照、打包压缩照片以及录音服务</server_name>
+		<desc>定时拍照、打包压缩照片以及录音服务</desc>
+		<class_name>com.fleety.analysis.operation.ScheduleTaskAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="4"/>
+		<para key="minute" value="30"/>
+		<para key="batch_interval" value="3" desc="批次间隔，单位分钟"/>
+		<para key="car_num" value="300" desc="每批次车辆数"/>
+		<para key="interval_time" value="24" desc="周期，单位时"/>
+		<para key="delay_time" value="120" desc="推迟执行照片时间，单位分钟"/>
+		
+		<para key="file_source_path" value="/home/fleety/iTop/Gateway" desc="源文件存储路径"/>
+		<para key="file_dest_path" value="/home/fleety/iTop/media" desc="压缩文件存储路径"/>
+		<para key="file_copy_path" value="/home/fleety/iTop/media_copy" desc="文件copy存储路径"/>
+		<para key="file_days" value="7" desc="压缩文件保留天数"/>
+		
+	</server>
+	
+	<server>
+		<server_name>支付宝交易统计服务</server_name>
+		<desc>分析每天支付宝交易总次数、扬召次数、电召次数、IVR订单次数、其它自助召车次数.</desc>
+		<class_name>com.fleety.analysis.alipay.AlipayStatServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		<para key="stat_sql" value="select to_char(sysdate - 1, 'yyyy-MM-dd') stat_time,count(*) total,sum(decode(dispatch_order_id, 0, 1, 0)) yang_zhao,sum(decode(dispatch_order_id, 0, 0, 1)) dian_zhao,sum(decode(user_id,888,0,222222,0,333333,0,444444,0,null,0,1)) ivr,sum(decode(user_id, 888, 1, 222222, 1, 333333, 1, 444444, 1, 0)) no_ivr from alipay_trade_order_info t1 left join taxi_order_list t2 on t1.dispatch_order_id = t2.order_id where t1.status in (4, 5) and to_char(create_time, 'yyyy-MM-dd') = to_char(sysdate - 1, 'yyyy-MM-dd')"/>
+		<para key="hour" value="2"/>
+		<para key="minute" value="30"/>
+	</server>
+	
+	<server>
+		<server_name>日调度业务统计服务</server_name>
+		<desc>按公司日调度业务统计服务，包括订单总数、接单数、成功数、无供数、取消数</desc>
+		<class_name>com.fleety.analysis.order.OrderDayAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="30"/>
+	</server>
+	<server>
+		<server_name>车辆GPS终端数据质量跟踪分析服务</server_name>
+		<desc>车辆GPS终端数据质量跟踪分析服务</desc>
+		<class_name>com.fleety.analysis.exception.GpsMdtDataQualityAnalysis</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="03"/>
+		<para key="minute" value="30"/>
+	</server>
+	
+	<server>
+		<server_name>车辆GPS终端数据修复分析服务</server_name>
+		<desc>车辆GPS终端数据修复分析服务</desc>
+		<class_name>com.fleety.analysis.exception.GpsMdtDataRepairAnalysis</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="05"/>
+		<para key="minute" value="00"/>
+		<para key="repair_num" value="3"/><!-- 给定修复天数 -->
+		<para key="day" value="4"/><!-- 为保障数据，连续分析天数 -->
+	</server> 
+	<server>
+		<server_name>短信发送数日统计分析服务</server_name>
+		<desc>短信发送数日统计分析服务</desc>
+		<class_name>com.fleety.analysis.sms.SmsDayAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="2"/>
+		<para key="minute" value="40"/>
+	</server>
+   
+   <server>
+		<server_name>故障率统计分析服务</server_name>
+		<desc>分析每天设备的故障数以及故障率.</desc>
+		<class_name>com.fleety.analysis.operation.GuzhangAnalysisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="2"/>
+		<para key="minute" value="0"/>
+		<para key="times" value="1" desc="故障持续时长，单位天"/>
+	</server>
+	<server>
+		<server_name>驾驶员接单情况日统计分析服务</server_name>
+		<desc>驾驶员接单情况日统计分析服务</desc>
+		<class_name>com.fleety.analysis.order.DriverOrdersAllDayAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>false</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="30"/>
+		<para key="relate" value="5"/><!-- 单位：分钟 -->
+		<para key="is_plat" value="true" desc="是否包含其他运营商数据"/>
+	</server>
+	
+	<server>
+		<server_name>车辆应标响应率统计服务</server_name>
+		<desc>车辆应标响应率统计服务</desc>
+		<class_name>com.fleety.analysis.order.OrderBidAnasisServer</class_name>
+		<create_method></create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="1"/>
+		<para key="minute" value="30"/>
+	</server>
+	<server>
+		<server_name>历史轨迹分析服务(深圳用)</server_name>
+		<desc>轨迹分析服务服务，分析指定时间段内的轨迹</desc>
+		<class_name>com.fleety.analysis.track.TrackAnalysiyHistoryDayServerSZ</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+		<para key="hour" value="2"/>
+		<para key="minute" value="30"/>
+		<para key="start_time" value="2016-09-25"/>
+		<para key="end_time" value="2016-09-26"/>
+		
+		
+		<para key="task_class" value="com.fleety.analysis.track.task.VehicleSpeedAVGAnalysisForDay" desc="驻点区域监控"/>
+	</server>
+	<server>
+		<server_name>深圳出租车作弊数据分析服务（逐天分析）</server_name>
+		<desc>深圳出租汽车计价器作弊数据分析服务，根据gps计算里程归类分析</desc>
+		<class_name>com.fleety.analysis.cheat.SZYesterdayCheatDataAnalysisServer</class_name>
+		<create_method>getSingleInstance</create_method>
+		<enable_server>true</enable_server>
+		<failure_system_exit>false</failure_system_exit>
+		
+	    <para key="hour" value="2"/>
+		<para key="minute" value="30"/>
+		<para key="key_area_stat_pre_time" value="1"/>
+		<para key="task_class" value="com.fleety.analysis.cheatTask.VehicleCheatCountSZtask1" desc="出租车作弊数据分析(深圳使用)"/>
+	</server>
+</start_server>
